@@ -1,33 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import { CssBaseline } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { Navbar, Products, Cart, Checkout } from './components';
-import Chart from './components/Chart/Chart'
+import { Navbar, Chart, Chart1, Nivo } from './components';
 
 import * as api from './api/index.js'
 import axios from 'axios';
 
 const App = () => {
-    const [state, setState] = useState({})
+    const [state, setState] = useState()
 
     useEffect(() => {
-        axios.get('https://fin-dashboard-react.herokuapp.com/data')
+        /* axios.get('https://fin-dashboard-react.herokuapp.com/data')
             .then(res => {
                 const persons = res.data;
-                setState({ persons });
+                setState(res.data);
                 console.log(persons)
                 console.log('..........................................')
-            })
+            }) */
+            console.log('lllllllllllllllllllllllllllllllllll')
+            const xxx = api.fetchPosts()
+            console.log(xxx)
+            console.log('lllllllllllllllllllllllllllllllllll')
     }, [])
 
-    console.log(state)
+    //console.log(state[0].data)
 
     return (
         <Router>
+            
             <Navbar />
+            <Switch>
+                <Route exact path="/" >
 
-            <Chart style={{ height: '600', width: '600' }} />
+                <Chart />
+                <Typography>
+                 xxx
+            </Typography>
+                </Route>
+                <Route exact path="/chart1" >
+                <Chart1 />                
+                </Route>
+                <Route exact path="/nivo" >
+                    <Nivo/>
+                </Route>
+            </Switch>
+
         </Router>
     )
 }

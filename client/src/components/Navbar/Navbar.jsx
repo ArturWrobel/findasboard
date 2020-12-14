@@ -14,13 +14,25 @@ const Navbar = () => {
     return (
         <AppBar position="fixed" className={classes.appBar} color="inherit">
                 <Toolbar>
-                    <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
-                        <img src={logo} alt="commerce.js" height="50px" className={classes.image} /> Orange Finance
+                    <Typography 
+                    component={Link} to="/" 
+                    variant="h6" 
+                    className={classes.title} 
+                    color="inherit">
+                        <img src={logo} 
+                        alt="commerce.js"
+                        height="50px" 
+                        className={classes.image} />
+                        Orange Finance
                     </Typography>
                     <div className={classes.grow} />
                     {/* {location.pathname === '/' && ( */}
                         <div className={classes.button}>
-                            <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
+                            <IconButton 
+                            component={Link} 
+                            to="/chart1" 
+                            aria-label="Show cart items" 
+                            color="inherit">
                                 <Badge  color="secondary">
                                     <ShoppingCart />
                                 </Badge>

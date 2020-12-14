@@ -25,11 +25,12 @@ export default class Example extends PureComponent {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/w6wsrc52/';
 
     render() {
-        return (
+        return (<>
             <PieChart width={800} height={800}>
                 <Pie data={data01} dataKey="value" cx={200} cy={200} outerRadius={60} fill="#8884d8" />
                 <Pie data={data02} dataKey="value" cx={200} cy={200} innerRadius={70} outerRadius={90} fill="#82ca9d" label />
             </PieChart>
+            </>
         );
     }
 }
