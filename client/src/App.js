@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Typography, CircularProgress, Container, Grid } from '@material-ui/core';
+import React, { useEffect } from 'react';
+import { Typography, CircularProgress, Container } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Navbar, Chart, Chart1, Nivo, Sidebar } from './components';
+import { Navbar, Chart, Nivo, Sidebar } from './components';
 import { Dashboard } from './views'
 import { getChartData } from './store/actions/charts';
 
@@ -29,17 +29,17 @@ const App = () => {
                 <Route exact path="/" >
                     <div>
                         <Typography> Działa?</Typography>
-                    {!xxx ? <CircularProgress /> : (<Container>
-                        <Typography> Działa?</Typography>
-                    </Container>)
+                        {!xxx ? <CircularProgress /> : (<Container>
+                            <Typography> Działa?</Typography>
+                        </Container>)
 
-                    }
+                        }
                     </div>
 
                     <Chart />
                 </Route>
                 <Route exact path="/chart1" >
-                <Dashboard/>
+                    <Dashboard />
                     {/* <Chart1 /> */}
                 </Route>
                 <Route exact path="/nivo" >

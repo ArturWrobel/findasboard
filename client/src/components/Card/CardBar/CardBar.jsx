@@ -1,9 +1,9 @@
 import React from 'react'
 import Card from '../Card'
-import { Typography, Avatar, CardHeader, CardContent, Divider } from '@material-ui/core'
+import { Typography, CardHeader, Divider } from '@material-ui/core'
 import { makeStyles } from "@material-ui/core/styles";
 import styles from './styles.js'
-import logo  from '../../../assets/logo.png'
+//import logo  from '../../../assets/logo.png'
 const useStyles = makeStyles(styles)
 
 const CardBar = (props) => {
@@ -25,7 +25,7 @@ const CardBar = (props) => {
                 </Typography>
                 </div>
             </Card>
-            <div className ={classes.sec}>
+            <div className={classes.sec}>
                 <Typography>
                     sec
                 </Typography>
