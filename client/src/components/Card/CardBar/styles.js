@@ -7,12 +7,13 @@ divider: {backgroundColor: 'red'
 footer: {
 
 },
-sec: {backgroundColor: 'brown',
+sec: {
+    backgroundColor: 'brown',
     width: 75,
     height: 75, 
     position: 'relative',
     top: -165,
-    left: 50,
+    left: '10%',
     borderRadius: "10px",
 }
 }

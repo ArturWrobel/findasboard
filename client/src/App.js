@@ -3,7 +3,7 @@ import { Typography, CircularProgress, Container, Grid } from '@material-ui/core
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Navbar, Chart, Chart1, Nivo } from './components';
+import { Navbar, Chart, Chart1, Nivo, Sidebar } from './components';
 import { Dashboard } from './views'
 import { getChartData } from './store/actions/charts';
 
@@ -24,6 +24,7 @@ const App = () => {
         <Router>
 
             <Navbar />
+            <Sidebar />
             <Switch>
                 <Route exact path="/" >
                     <div>

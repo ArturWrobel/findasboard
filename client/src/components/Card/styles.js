@@ -1,8 +1,8 @@
 const cardStyles = {
     card: {
-    marginBottom: "10px",
-    marginTop: 5,
-    borderRadius: 20,
+    marginBottom: 5,
+    marginTop: 10,
+    borderRadius: "10px",
     }
 }
 
