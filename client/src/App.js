@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { Typography, CircularProgress, Container } from '@material-ui/core';
+import { Typography, CircularProgress, Container, Paper } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Navbar, Chart, Nivo, Sidebar } from './components';
+import { Chart, Nivo, Sidebar } from './components';
 import { Dashboard } from './views'
 import { getChartData } from './store/actions/charts';
 
@@ -22,8 +22,6 @@ const App = () => {
 
     return (
         <Router>
-
-            <Navbar />
             <Sidebar />
             <Switch>
                 <Route exact path="/" >
@@ -35,12 +33,10 @@ const App = () => {
 
                         }
                     </div>
-
                     <Chart />
                 </Route>
                 <Route exact path="/chart1" >
                     <Dashboard />
-                    {/* <Chart1 /> */}
                 </Route>
                 <Route exact path="/nivo" >
                     <Nivo />
