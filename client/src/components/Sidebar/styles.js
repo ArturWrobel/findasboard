@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
+import {setDrawerWidth} from '../../constants/config'
 
-const drawerWidth = 200;
+const drawerWidth = setDrawerWidth;
 
 export default makeStyles((theme) => ({
     root: {
@@ -8,7 +9,7 @@ export default makeStyles((theme) => ({
     },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
-        backgroundColor: "black"
+        backgroundColor: "black",
     },
     drawer: {
         width: drawerWidth,
@@ -20,9 +21,8 @@ export default makeStyles((theme) => ({
     drawerContainer: {
         overflow: 'auto',
     },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
+    listItem: {
+        paddingTop: '15px'
     },
     image: {
         marginRight: "20px",

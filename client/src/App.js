@@ -3,11 +3,15 @@ import { Typography, CircularProgress, Container, Paper } from '@material-ui/cor
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Chart, Nivo, Sidebar } from './components';
+import { Chart, Sidebar } from './components';
 import { Dashboard } from './views'
 import { getChartData } from './store/actions/charts';
 
+import useStyles from './styles';
+
 const App = () => {
+    const classes = useStyles();
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -21,28 +25,46 @@ const App = () => {
     console.log('...........')
 
     return (
-        <Router>
+        <Router className={classes.root}>
             <Sidebar />
             <Switch>
-                <Route exact path="/" >
-                    <div>
-                        <Typography> Działa?</Typography>
-                        {!xxx ? <CircularProgress /> : (<Container>
-                            <Typography> Działa?</Typography>
-                        </Container>)
-
-                        }
+                <Route exact path={["/", "/Home"]} className={classes.content}>
+                    <div className={classes.content}>
+                        <Typography>Home Page</Typography>
+                        <Chart />
                     </div>
-                    <Chart />
                 </Route>
-                <Route exact path="/chart1" >
-                    <Dashboard />
+                <Route exact path="/Chart" className={classes.content}>
+                    <div className={classes.content}>
+                        <Dashboard />
+                    </div>
                 </Route>
-                <Route exact path="/nivo" >
-                    <Nivo />
+                <Route exact path="/Tables" >
+                    <div className={classes.content}>
+                        <Typography>Tables</Typography>
+                    </div>
+                </Route>
+                <Route exact path="/Dashboard" >
+                    <div className={classes.content}>
+                        <Typography>Dashboard</Typography>
+                    </div>
+                </Route>
+                <Route exact path="/Maps" >
+                    <div className={classes.content}>
+                        <Typography>Maps</Typography>
+                    </div>
+                </Route>
+                <Route exact path="/Calculator" >
+                    <div className={classes.content}>
+                        <Typography>Calculator</Typography>
+                    </div>
+                </Route>
+                <Route exact path="/Contact" >
+                    <div className={classes.content}>
+                        <Typography>Contact</Typography>
+                    </div>
                 </Route>
             </Switch>
-
         </Router>
     )
 }

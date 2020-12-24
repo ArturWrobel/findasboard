@@ -1,0 +1,1 @@
+export const setDrawerWidth = 200
