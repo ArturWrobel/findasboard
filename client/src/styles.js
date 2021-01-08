@@ -4,8 +4,8 @@ import {setDrawerWidth} from './constants/config'
 
 export default makeStyles((theme) => ({
     content: {
-        backgroundColor: 'red',
+        backgroundColor: '#eeeee7',
         marginLeft: setDrawerWidth,
-        padding: theme.spacing(2)
+        padding: theme.spacing(2),
     },
 }));

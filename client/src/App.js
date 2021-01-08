@@ -25,17 +25,20 @@ const App = () => {
     console.log('...........')
 
     return (
-        <Router className={classes.root}>
+        <Router>
             <Sidebar />
             <Switch>
-                <Route exact path={["/", "/Home"]} className={classes.content}>
+                <Route exact path={["/", "/Home"]}>
                     <div className={classes.content}>
                         <Typography>Home Page</Typography>
                         <Chart />
                     </div>
                 </Route>
-                <Route exact path="/Chart" className={classes.content}>
+                <Route exact path="/Chart">
                     <div className={classes.content}>
+                        <Typography>
+                            Text
+                        </Typography>
                         <Dashboard />
                     </div>
                 </Route>
