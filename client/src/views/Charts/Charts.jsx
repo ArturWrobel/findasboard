@@ -6,7 +6,7 @@ import styles from './styles.js'
 
 const useStyles = makeStyles(styles)
 
-const Home = () => {
+const Charts = () => {
 
     const classes = useStyles();
 
@@ -14,11 +14,11 @@ const Home = () => {
         <>
         <Grid container className={classes.test}>
                 <Typography variant="h3">
-                    Home?
+                    Charts...
                 </Typography>
         </Grid>
         </>
     )
 }
 
-export default Home
+export default Charts

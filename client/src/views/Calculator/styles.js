@@ -1,9 +1,36 @@
 const calculatorStyle = {
-    test : {
-        marginTop: 75,
+    title: {
         backgroundColor: 'yellow',
-        justifyContent: 'space-between',
+        fontWeight: 'bold',
+        marginBottom: 20,
+        textAlign: 'center'
     },
+    subtitle: {
+        textAlign: 'center',
+        alignItems: 'center'
+    },
+    inputs: {
+        marginTop: 20,
+        padding: 20,
+    },
+
+    data: {
+        
+        display: 'flex',
+        justifyContent: 'space-between'
+    },
+    result: {
+        marginTop: 20,
+        textAlign: 'center'
+    },
+    score: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        color: 'green',
+        backgroundColor: 'lightgrey',
+        padding: "10px 20px 10px",
+        borderRadius: "5px",
     }
+}
 
 export default calculatorStyle;

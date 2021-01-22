@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Chart, Sidebar } from './components';
-import { Dashboard } from './views'
+import { Contact, Dashboard, Calculator, Charts, HomePage, Maps, Tables } from './views'
 import { getChartData } from './store/actions/charts';
 
 import useStyles from './styles';
@@ -30,41 +30,44 @@ const App = () => {
             <Switch>
                 <Route exact path={["/", "/Home"]}>
                     <div className={classes.content}>
-                        <Typography>Home Page</Typography>
-                        <Chart />
+                        <HomePage/>
                     </div>
                 </Route>
-                <Route exact path="/Chart">
+                <Route exact path="/Charts">
                     <div className={classes.content}>
                         <Typography>
-                            Text
-                        </Typography>
-                        <Dashboard />
+                            Chart
+                        </Typography> 
+                        <Charts/>
                     </div>
                 </Route>
                 <Route exact path="/Tables" >
                     <div className={classes.content}>
                         <Typography>Tables</Typography>
+                        <Tables/>
                     </div>
                 </Route>
                 <Route exact path="/Dashboard" >
                     <div className={classes.content}>
                         <Typography>Dashboard</Typography>
+                        <Dashboard/>
                     </div>
                 </Route>
                 <Route exact path="/Maps" >
                     <div className={classes.content}>
                         <Typography>Maps</Typography>
+                        <Maps/>
                     </div>
                 </Route>
                 <Route exact path="/Calculator" >
                     <div className={classes.content}>
-                        <Typography>Calculator</Typography>
+                        <Calculator/>
                     </div>
                 </Route>
                 <Route exact path="/Contact" >
                     <div className={classes.content}>
                         <Typography>Contact</Typography>
+                        <Contact/>
                     </div>
                 </Route>
             </Switch>

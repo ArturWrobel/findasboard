@@ -1,9 +1,9 @@
-const homeStyle = {
+const contactStyle = {
     test : {
         marginTop: 75,
-        backgroundColor: 'red',
+        backgroundColor: 'brown',
         justifyContent: 'space-between',
     },
     }
 
-export default homeStyle;
+export default contactStyle;

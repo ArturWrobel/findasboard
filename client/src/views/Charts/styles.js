@@ -1,9 +1,9 @@
-const homeStyle = {
+const chartsStyle = {
     test : {
         marginTop: 75,
-        backgroundColor: 'red',
+        backgroundColor: 'lime',
         justifyContent: 'space-between',
     },
     }
 
-export default homeStyle;
+export default chartsStyle;
