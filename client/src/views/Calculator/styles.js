@@ -13,6 +13,10 @@ const calculatorStyle = {
         marginTop: 20,
         padding: 20,
     },
+    waiting: {
+        textAlign: 'center',
+        marginTop: 50,
+    },
 
     data: {
         

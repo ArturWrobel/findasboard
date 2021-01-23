@@ -29,7 +29,7 @@ const Calculator = () => {
                 </Typography>
                 <Radio value={show} handleChange={handleChange} />
             </Paper>
-            {show === "nothing" ? <Typography variant="h5">
+            {show === "nothing" ? <Typography variant="h5" className={classes.waiting}>
                 Waiting for your choice
             </Typography> :
                 <Grid>
