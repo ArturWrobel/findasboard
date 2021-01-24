@@ -5,7 +5,7 @@ import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePag
 
 const columns = [
     { id: 'no', label: 'No.' },
-    { id: 'date', label: 'Date', minWidth: 170 },
+    { id: 'name', label: 'Date', minWidth: 170 },
     { id: 'code', label: 'Instalment', minWidth: 100 },
     {
         id: 'population',
@@ -30,28 +30,28 @@ const columns = [
     },
 ];
 
-function createData(no, date, code, population, size) {
-    const density = 50/10;
-    return { no, date, code, population, size, density };
+function createData(no, name, code, population, size) {
+    const density = population / size;
+    return { no, name, code, population, size, density };
 }
-let months = 20
+let months = 15
 let amount = 1000
 let instalment = amount / months
-
 let today = new Date()
 today.setMonth(today.getMonth() - 1)
-let i, capital
+let i;
 let rows = []
 
 for (i = 0; i <= months; i++) {
     let residual = amount - instalment * i
     let date = today
     date.setMonth(date.getMonth() + 1)
-    
     console.log("Number", i, "Data", date.toISOString().slice(0, 10), "instalment", instalment,
-        "Amount", residual, "Capital", capital, "Interest", 10)
-        rows.push(createData(i,date.toISOString().slice(0, 10),3,4,5))
+        "Amount", residual, "Capital", 100, "Interest", 10)
+        rows.push(createData(i,date.toISOString().slice(0, 10),amount,4,5))
 }
+console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+console.log (11)
 
 const rowss = [
     createData(1, 'India', 'IN', 1324171354, 3287263),
@@ -70,9 +70,6 @@ const rowss = [
     createData('Nigeria', 'NG', 200962417, 923768),
     createData('Brazil', 'BR', 210147125, 8515767),
 ];
-
-console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-console.log (rows)
 
 const useStyles = makeStyles({
     root: {
