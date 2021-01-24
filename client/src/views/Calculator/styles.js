@@ -1,6 +1,6 @@
 const calculatorStyle = {
     title: {
-        backgroundColor: 'yellow',
+        backgroundColor: 'orange',
         fontWeight: 'bold',
         marginBottom: 20,
         textAlign: 'center'
@@ -24,7 +24,7 @@ const calculatorStyle = {
         justifyContent: 'space-between'
     },
     result: {
-        marginTop: 20,
+        marginTop: 50,
         textAlign: 'center'
     },
     score: {
@@ -34,6 +34,7 @@ const calculatorStyle = {
         backgroundColor: 'lightgrey',
         padding: "10px 20px 10px",
         borderRadius: "5px",
+        margin: "0 10px 0"
     }
 }
 

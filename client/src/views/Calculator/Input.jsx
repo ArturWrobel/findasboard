@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from 'react'
-import { TextField, Typography, Grid } from "@material-ui/core/"
+import { TextField, Typography, Grid, Paper} from "@material-ui/core/"
 import { makeStyles } from "@material-ui/core/styles";
 
-import { irr, rate } from 'financial'
+import { rate } from 'financial'
 
 import styles from './styles.js'
+
 
 const useStyles = makeStyles(styles)
 
 export default function Input(props) {
     const classes = useStyles();
 
-    const [values, setValues] = useState({
+    const initialState = {
         amount: 0,
         payment: 0,
         interest: 0,
         months: 0
-    })
+    }
+    const [values, setValues] = useState(initialState)
     const [total, set_total] = useState(0);
+    const [choice, newChoice] = useState(props.name)
 
     const values_handler = (e) => {
         let name = e.target.name;
@@ -28,7 +31,20 @@ export default function Input(props) {
         calcTotal(values)
     }
 
-    useEffect(() => { calcTotal(values) }, [values])
+    useEffect(() => { 
+        if (props.name !== choice) {
+            setValues(initialState)
+            newChoice(props.name)
+            const aaa = document.getElementById("amount")
+            aaa.value = ''
+            const bbb = document.getElementById("interest")
+            bbb.value = ''
+            const ccc = document.getElementById("payment")
+            ccc.value = ''
+            const ddd = document.getElementById("months")
+            ddd.value = ''
+        }
+        calcTotal(values) }, [values, props.name])
 
     const calcTotal = (values) => {
         let aux = 0
@@ -38,17 +54,29 @@ export default function Input(props) {
         } */
         let amount = parseFloat(values.amount, 10)
         let payment = parseFloat(values.payment, 10)
-        let interest = (parseFloat(values.interest, 10)/100)
+        let interest = (parseFloat(values.interest, 10) / 100)
         let months = parseFloat(values.months, 10)
         switch (props.name) {
             case 'amount':
-                aux = payment * [ (1-[1/Math.pow((1+(interest/12)), months)])/(interest/12) ]
+                if (payment === 0 || interest === 0 || months === 0) {
+                    aux = 0
+                } else {
+                    aux = payment * [(1 - [1 / Math.pow((1 + (interest / 12)), months)]) / (interest / 12)]
+                }    
                 break
             case 'interest':
-                aux = [rate(months,(-1*payment) ,amount,0, 'end')*100*12]
+                if (payment === 0 || amount === 0 || months === 0) {
+                    aux = 0
+                } else {
+                    aux = [rate(months, (-1 * payment), amount, 0, 'end') * 100 * 12]
+                }
                 break
             case 'payment':
-                aux = [amount] / [ (1 - ( [1 / (Math.pow ((1+ interest/12), months))])) / (interest/12)]
+                if (interest === 0 || amount === 0 || months === 0) {
+                    aux = 0
+                } else {
+                    aux = [amount] / [(1 - ([1 / (Math.pow((1 + interest / 12), months))])) / (interest / 12)]
+                }
                 break
             default:
                 aux = 0
@@ -57,40 +85,43 @@ export default function Input(props) {
     }
 
 
-    let amt, pay, int, result
+    let amt, pay, int, result, after
     if (props.name === 'amount') {
         amt = true
         result = "Leasing Amount"
+        after = "EUR"
     } else if (props.name === 'payment') {
         pay = true
         result = "Monthly Payment"
+        after = "EUR"
     } else if (props.name === 'interest') {
         int = true
         result = "Interest Rate"
+        after = "%"
     }
 
     return (
         <>
             <form noValidate autoComplete="off" className={classes.data}>
-                <TextField 
+                <TextField
                     disabled={amt}
                     id="amount"
                     name="amount"
                     label="Leasing Amount"
                     variant="outlined"
                     type="number"
-                    placeholder="0.00"
+                    placeholder="0.00 EUR"
                     onChange={values_handler} />
-                <TextField 
+                <TextField
                     disabled={pay}
                     id="payment"
                     name="payment"
                     label="Monthly Payment"
                     variant="outlined"
                     type="number"
-                    placeholder="0.00"
+                    placeholder="0.00 EUR"
                     onChange={values_handler} />
-                <TextField 
+                <TextField
                     disabled={int}
                     id="interest"
                     name="interest"
@@ -110,11 +141,12 @@ export default function Input(props) {
             </form>
             <Grid className={classes.result}>
                 <Typography variant="h6">
-                    {result}: {' '}
-                    <span className={classes.score}> {total.toLocaleString('en-US', {maximumFractionDigits:2})} </span>
+                    {result}:
+                    <span className={classes.score}> {total.toLocaleString('en-US', { maximumFractionDigits: 2 })} </span>
+                    {after}
                 </Typography>
-            </Grid>
-
+                
+            </Grid>            
         </>
     )
 }
