@@ -50,8 +50,8 @@ for (i = 0; i <= months; i++) {
         "Amount", residual, "Capital", 100, "Interest", 10)
         rows.push(createData(i,date.toISOString().slice(0, 10),amount,4,5))
 }
-console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-console.log (11)
+/* console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+console.log (11) */
 
 const rowss = [
     createData(1, 'India', 'IN', 1324171354, 3287263),

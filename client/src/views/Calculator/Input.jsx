@@ -25,7 +25,7 @@ export default function Input(props) {
         let name = e.target.name;
         let value = e.target.value;
         setValues({ ...values, [name]: value })
-
+        props.handleChange(values)
         // Calling the method to sum the value
         calcTotal(values)
     }

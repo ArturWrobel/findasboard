@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Typography }
     from '@material-ui/core'
@@ -6,12 +6,10 @@ import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePag
 import styles from './stylesFlows.js'
 const useStyles = makeStyles(styles)
 
-
-
 export default function StickyHeadTable(props) {
     const classes = useStyles();
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -60,7 +58,6 @@ export default function StickyHeadTable(props) {
     let amount = props.amount
     let instalment = props.payment
     let interest = props.interest/100
-    console.log(interest)
 
     let today = new Date()
     today.setMonth(today.getMonth() - 1)
@@ -78,7 +75,12 @@ export default function StickyHeadTable(props) {
         rows.push(createData(i, date.toISOString().slice(0, 10), instalment, residual, capital, int))
     }
     return (
-        <Paper className={classes.root}>            
+        <Paper className={classes.root}>
+            <Typography variant="h5">
+                {props.amount} {" "}
+                {props.payment}{" "}
+                {props.months}{" "}
+            </Typography>
             <TableContainer className={classes.container}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>

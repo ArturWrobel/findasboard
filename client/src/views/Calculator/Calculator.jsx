@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Paper, Grid } from "@material-ui/core/"
 import Radio from './Radio'
@@ -11,13 +11,37 @@ const useStyles = makeStyles(styles)
 
 const Calculator = () => {
     const [show, setShow] = useState('nothing')
+    const initialTable = {
+        amount: 0,
+        payment: 0,
+        interest: 0,
+        months: 0
+    }
+    const [table, setTable] = useState(initialTable)
     const classes = useStyles();
 
-    const handleChange = radioButtonValue => {
+    const handleChangeRadio = radioButtonValue => {
         setShow(radioButtonValue)
-        console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh')
-        console.log(radioButtonValue)
     };
+
+    const handleChangeInput = inputValue => {
+        setTable(inputValue)
+    };
+
+    const createTable = (table) => {
+        return (
+            <Flows
+                        amount={table.amount}
+                        payment={table.payment}
+                        interest={table.interest}
+                        months={table.months}
+                    />
+        )
+    }
+
+    useEffect( () =>{
+            createTable(table)
+    }, [table])   
 
     return (
         <>
@@ -30,30 +54,27 @@ const Calculator = () => {
                 <Typography variant="h6" >
                     What do you want to calculate?
                 </Typography>
-                <Radio value={show} handleChange={handleChange}/>
+                <Radio value={show} handleChange={handleChangeRadio} />
             </Paper>
             {show === "nothing" ? <Typography variant="h5" className={classes.waiting}>
                 Waiting for your choice
             </Typography> :
                 <Grid>
                     <Paper className={classes.inputs} elevation={3}>
-                        <Input name={show} />
+                        <Input name={show} handleChange={handleChangeInput}/>
                     </Paper>
                     <Typography>
                         Use only positive numbers
                 </Typography>
                 </Grid>
             }
-            <Grid className={classes.flows}>
-            <Paper elevation={3}>
-                <Flows 
-                amount={1800}
-                payment = {200}
-                interest = {5.5}                
-                months = {8} 
-                />
-            </Paper>
+            {table.amount === 0 ? <Typography variant="5"></Typography> :
+                <Grid className={classes.flows}>
+                <Paper elevation={3}>
+                    {createTable(table)}
+                </Paper>
             </Grid>
+            }            
         </>
     )
 }
