@@ -15,6 +15,8 @@ const Calculator = () => {
 
     const handleChange = radioButtonValue => {
         setShow(radioButtonValue)
+        console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh')
+        console.log(radioButtonValue)
     };
 
     return (
@@ -44,7 +46,12 @@ const Calculator = () => {
             }
             <Grid className={classes.flows}>
             <Paper elevation={3}>
-                <Flows/>
+                <Flows 
+                amount={1800}
+                payment = {200}
+                interest = {5.5}                
+                months = {8} 
+                />
             </Paper>
             </Grid>
         </>

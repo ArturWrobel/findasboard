@@ -1,10 +1,10 @@
 const flowsStyle = {
-    title: {
-        backgroundColor: 'orange',
-        fontWeight: 'bold',
-        marginBottom: 20,
-        textAlign: 'center'
-    }
+    root: {
+        width: '100%',
+    },
+    container: {
+        maxHeight: 440,
+    },
 }
 
 export default flowsStyle;

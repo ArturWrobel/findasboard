@@ -6,7 +6,6 @@ import { rate } from 'financial'
 
 import styles from './styles.js'
 
-
 const useStyles = makeStyles(styles)
 
 export default function Input(props) {
@@ -46,7 +45,7 @@ export default function Input(props) {
         }
         calcTotal(values) }, [values, props.name])
 
-    const calcTotal = (values) => {
+    const calcTotal = (values) => { 
         let aux = 0
         /* for (var key in values) {
             parseInt(values, 10)

@@ -1,89 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow }
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Typography }
     from '@material-ui/core'
 
-const columns = [
-    { id: 'no', label: 'No.' },
-    { id: 'date', label: 'Date', minWidth: 170 },
-    { id: 'code', label: 'Instalment', minWidth: 100 },
-    {
-        id: 'population',
-        label: 'Residual',
-        minWidth: 170,
-        align: 'right',
-        format: (value) => value.toLocaleString('en-US'),
-    },
-    {
-        id: 'size',
-        label: 'Capital',
-        minWidth: 170,
-        align: 'right',
-        format: (value) => value.toLocaleString('en-US'),
-    },
-    {
-        id: 'density',
-        label: 'Interest',
-        minWidth: 170,
-        align: 'right',
-        format: (value) => value.toFixed(2),
-    },
-];
+import styles from './stylesFlows.js'
+const useStyles = makeStyles(styles)
 
-function createData(no, date, code, population, size) {
-    const density = 50/10;
-    return { no, date, code, population, size, density };
-}
-let months = 20
-let amount = 1000
-let instalment = amount / months
 
-let today = new Date()
-today.setMonth(today.getMonth() - 1)
-let i, capital
-let rows = []
 
-for (i = 0; i <= months; i++) {
-    let residual = amount - instalment * i
-    let date = today
-    date.setMonth(date.getMonth() + 1)
-    
-    console.log("Number", i, "Data", date.toISOString().slice(0, 10), "instalment", instalment,
-        "Amount", residual, "Capital", capital, "Interest", 10)
-        rows.push(createData(i,date.toISOString().slice(0, 10),3,4,5))
-}
-
-const rowss = [
-    createData(1, 'India', 'IN', 1324171354, 3287263),
-    createData(2, 'China', 'CN', 1403500365, 9596961),
-    createData(3, 'Italy', 'IT', 60483973, 301340),
-    createData(4, 'United States', 'US', 327167434, 9833520),
-    createData(5, 'Canada', 'CA', 37602103, 9984670),
-    createData('Australia', 'AU', 25475400, 7692024),
-    createData('Germany', 'DE', 83019200, 357578),
-    createData('Ireland', 'IE', 4857000, 70273),
-    createData('Mexico', 'MX', 126577691, 1972550),
-    createData('Japan', 'JP', 126317000, 377973),
-    createData('France', 'FR', 67022000, 640679),
-    createData('United Kingdom', 'GB', 67545757, 242495),
-    createData('Russia', 'RU', 146793744, 17098246),
-    createData('Nigeria', 'NG', 200962417, 923768),
-    createData('Brazil', 'BR', 210147125, 8515767),
-];
-
-console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-console.log (rows)
-
-const useStyles = makeStyles({
-    root: {
-        width: '100%',
-    },
-    container: {
-        maxHeight: 440,
-    },
-});
-
-export default function StickyHeadTable() {
+export default function StickyHeadTable(props) {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -97,8 +22,63 @@ export default function StickyHeadTable() {
         setPage(0);
     };
 
+    const columns = [
+        { id: 'no', label: 'No.' },
+        { id: 'date', label: 'Date', minWidth: 170 },
+        {
+            id: 'instalment', label: 'Instalment', minWidth: 100, align: 'right',
+            format: (value) => value.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })
+        },
+        {
+            id: 'residual', label: 'Residual', minWidth: 170, align: 'right',
+            format: (value) => value.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })
+        },
+        {
+            id: 'capital', label: 'Capital', minWidth: 170, align: 'right',
+            format: (value) => value.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })
+        },
+        {
+            id: 'interest', label: 'Interest', minWidth: 170, align: 'right',
+            format: (value) => value.toFixed(2),
+        },
+    ];
+    
+    function createData(no, date, instalment, residual, capital, interest) {
+        return { no, date, instalment, residual, capital, interest };
+    }
+    
+    let months = props.months
+    let amount = props.amount
+    let instalment = props.payment
+    let interest = props.interest/100
+    console.log(interest)
+
+    let today = new Date()
+    today.setMonth(today.getMonth() - 1)
+    let i, capital
+    let rows = []
+    
+    for (i = 0; i <= months; i++) {
+        let residual = amount - instalment * i
+        let date = today
+        date.setMonth(date.getMonth() + 1)
+        let int = residual* interest
+        capital = instalment - int
+        /* console.log("Number", i, "Data", date.toISOString().slice(0, 10), "instalment", instalment,
+            "Amount", residual, "Capital", capital, "Interest", 10) */
+        rows.push(createData(i, date.toISOString().slice(0, 10), instalment, residual, capital, int))
+    }
     return (
-        <Paper className={classes.root}>
+        <Paper className={classes.root}>            
             <TableContainer className={classes.container}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
