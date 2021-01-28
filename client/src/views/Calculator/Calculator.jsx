@@ -24,8 +24,10 @@ const Calculator = () => {
         setShow(radioButtonValue)
     };
 
-    const handleChangeInput = inputValue => {
-        setTable(inputValue)
+    const handleChangeInput = async (inputValue) => {
+        await setTable(inputValue)
+        console.log('-----------------')
+        console.log(table)
     };
 
     const createTable = (table) => {

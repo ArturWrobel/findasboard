@@ -43,7 +43,7 @@ export default function Input(props) {
             const ddd = document.getElementById("months")
             ddd.value = ''
         }
-        calcTotal(values) }, [values, props.name])
+        calcTotal(values) }, [values, props.name, set_total])
 
     const calcTotal = (values) => { 
         let aux = 0

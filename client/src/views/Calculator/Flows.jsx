@@ -20,6 +20,7 @@ export default function StickyHeadTable(props) {
         setPage(0);
     };
 
+
     const columns = [
         { id: 'no', label: 'No.' },
         { id: 'date', label: 'Date', minWidth: 170 },
