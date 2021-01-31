@@ -31,6 +31,7 @@ export default function Input(props) {
     }
 
     useEffect(() => { 
+        // handle change of radio choice
         if (props.name !== choice) {
             setValues(initialState)
             newChoice(props.name)
@@ -81,6 +82,8 @@ export default function Input(props) {
                 aux = 0
         }
         set_total(aux)
+        console.log(" to wychodzi z Input")
+        console.log(aux, values)
     }
 
 
@@ -106,7 +109,7 @@ export default function Input(props) {
                     disabled={amt}
                     id="amount"
                     name="amount"
-                    label="Leasing Amount"
+                    label="Leasing Amount*"
                     variant="outlined"
                     type="number"
                     placeholder="0.00 EUR"
@@ -115,7 +118,7 @@ export default function Input(props) {
                     disabled={pay}
                     id="payment"
                     name="payment"
-                    label="Monthly Payment"
+                    label="Monthly Payment*"
                     variant="outlined"
                     type="number"
                     placeholder="0.00 EUR"
@@ -124,7 +127,7 @@ export default function Input(props) {
                     disabled={int}
                     id="interest"
                     name="interest"
-                    label="Interest Rate"
+                    label="Interest Rate*"
                     variant="outlined"
                     type="number" step="0.01"
                     placeholder="0.00 %"
@@ -132,7 +135,7 @@ export default function Input(props) {
                 <TextField
                     id="months"
                     name="months"
-                    label="Number of Payments"
+                    label="Number of Payments*"
                     variant="outlined"
                     type="number"
                     placeholder="0"

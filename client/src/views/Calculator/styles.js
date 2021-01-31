@@ -17,6 +17,13 @@ const calculatorStyle = {
         textAlign: 'center',
         marginTop: 50,
     },
+    comment: {
+        color: 'rgba(102, 153, 153, .75)',
+    },
+    button: {
+        alignItems: 'center',
+    },
+
 
     data: {
         

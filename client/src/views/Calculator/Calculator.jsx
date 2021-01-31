@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Paper, Grid } from "@material-ui/core/"
+import { Typography, Paper, Grid, Button } from "@material-ui/core/"
 import Radio from './Radio'
 import Input from './Input'
 import Flows from './Flows'
@@ -21,11 +21,12 @@ const Calculator = () => {
     const classes = useStyles();
 
     const handleChangeRadio = radioButtonValue => {
+
         setShow(radioButtonValue)
     };
 
-    const handleChangeInput = async (inputValue) => {
-        await setTable(inputValue)
+    const handleChangeInput = (inputValue) => {
+        setTable(inputValue)
         console.log('-----------------')
         console.log(table)
     };
@@ -41,9 +42,9 @@ const Calculator = () => {
         )
     }
 
-    useEffect( () =>{
+    /* useEffect( () =>{
             createTable(table)
-    }, [table])   
+    }, [table])   */ 
 
     return (
         <>
@@ -65,16 +66,13 @@ const Calculator = () => {
                     <Paper className={classes.inputs} elevation={3}>
                         <Input name={show} handleChange={handleChangeInput}/>
                     </Paper>
-                    <Typography>
-                        Use only positive numbers
+                    <Typography className={classes.comment}>
+                        *Use only positive numbers
                 </Typography>
                 </Grid>
             }
-            {table.amount === 0 ? <Typography variant="5"></Typography> :
-                <Grid className={classes.flows}>
-                <Paper elevation={3}>
-                    {createTable(table)}
-                </Paper>
+            {table.amount === 0 ? <Typography variant="5"></Typography> : <Grid className={classes.button}>
+            <Button variant="contained" color="primary" >Build payments table</Button>
             </Grid>
             }            
         </>
@@ -82,3 +80,9 @@ const Calculator = () => {
 }
 
 export default Calculator
+
+{/* <Grid className={classes.flows}>
+                <Paper elevation={3}>
+                    {createTable(table)}
+                </Paper>
+            </Grid> */}
