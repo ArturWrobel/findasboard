@@ -42,7 +42,8 @@ const calculatorStyle = {
     result: {
         marginTop: '2vh',
         marginBottom: '2vh',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: 20
     },
     score: {
         fontWeight: 'bold',
@@ -51,7 +52,7 @@ const calculatorStyle = {
         backgroundColor: 'white',
         padding: "5px 10px 5px",
         borderRadius: "5px",
-        border: "3px solid #FF7A01",
+        border: "2px solid #FF7A01",
         margin: "0 10px 0",
     }
 }

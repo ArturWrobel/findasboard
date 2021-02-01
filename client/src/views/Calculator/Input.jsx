@@ -20,6 +20,7 @@ export default function Input(props) {
     }
     const [values, setValues] = useState(initialState)
     const [total, set_total] = useState(0);
+    const [outcome, setOutcome] = useState([0,0,0,0]);
     const [choice, newChoice] = useState(props.name)
 
     const values_handler = (e) => {
@@ -34,10 +35,10 @@ export default function Input(props) {
     const createTable = (table) => {
         return (
             <Flows
-                        amount={table.amount}
-                        payment={table.payment}
-                        interest={table.interest}
-                        months={table.months}
+                        amount={outcome[0]}
+                        payment={outcome[1]}
+                        interest={outcome[2]}
+                        months={outcome[3]}
                     />
         )
     }
@@ -46,6 +47,7 @@ export default function Input(props) {
         // handle change of radio choice
         if (props.name !== choice) {
             setValues(initialState)
+            setOutcome([0,0,0,0])
             newChoice(props.name)
             const aaa = document.getElementById("amount")
             aaa.value = ''
@@ -60,6 +62,7 @@ export default function Input(props) {
 
     const calcTotal = (values) => { 
         let aux = 0
+        let outcome = []
         /* for (var key in values) {
             parseInt(values, 10)
             aux += values[key]
@@ -74,6 +77,7 @@ export default function Input(props) {
                     aux = 0
                 } else {
                     aux = payment * [(1 - [1 / Math.pow((1 + (interest / 12)), months)]) / (interest / 12)]
+                    setOutcome([aux , payment, interest, months])
                 }    
                 break
             case 'interest':
@@ -81,6 +85,7 @@ export default function Input(props) {
                     aux = 0
                 } else {
                     aux = [rate(months, (-1 * payment), amount, 0, 'end') * 100 * 12]
+                    setOutcome([amount , payment, aux, months])
                 }
                 break
             case 'payment':
@@ -88,16 +93,15 @@ export default function Input(props) {
                     aux = 0
                 } else {
                     aux = [amount] / [(1 - ([1 / (Math.pow((1 + interest / 12), months))])) / (interest / 12)]
+                    setOutcome([amount, aux, interest, months])
                 }
                 break
             default:
                 aux = 0
         }
         set_total(aux)
-        console.log(" to wychodzi z Input")
-        console.log(aux, values)
+        return outcome
     }
-
 
     let amt, pay, int, result, after
     if (props.name === 'amount') {
@@ -166,7 +170,7 @@ export default function Input(props) {
                 </Typography>
                 
             </Grid>           
-            {values.amount === 0 ? <Typography variant="5"></Typography> : 
+            {(outcome[0] === 0 || outcome[1] === 0 || outcome[2] === 0 || outcome[3] === 0) ? <Typography variant="5"></Typography> : 
                 <Grid className={classes.flows}>
                 <Paper elevation={3}>
                     {createTable(values)}

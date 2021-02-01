@@ -23,7 +23,7 @@ export default function StickyHeadTable(props) {
 
     const columns = [
         { id: 'no', label: 'No.' },
-        { id: 'date', label: 'Date', minWidth: 170 },
+        { id: 'date', label: 'Date', minWidth: 100 },
         {
             id: 'instalment', label: 'Instalment', minWidth: 100, align: 'right',
             format: (value) => value.toLocaleString('en-US', {
@@ -32,7 +32,7 @@ export default function StickyHeadTable(props) {
             })
         },
         {
-            id: 'residual', label: 'Residual', minWidth: 170, align: 'right',
+            id: 'residual', label: 'Residual', minWidth: 100, align: 'right',
             format: (value) => value.toLocaleString('en-US', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2

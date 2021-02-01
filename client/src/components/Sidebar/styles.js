@@ -23,7 +23,7 @@ export default makeStyles((theme) => ({
         overflow: 'auto',
     },
     listItem: {
-        paddingTop: '15px'
+        paddingTop: '15px',
     },
     image: {
         marginRight: "20px",
