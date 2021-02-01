@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Paper, Grid, Button } from "@material-ui/core/"
 import Radio from './Radio'
 import Input from './Input'
-import Flows from './Flows'
 
 import styles from './styles.js'
 
@@ -31,16 +30,7 @@ const Calculator = () => {
         console.log(table)
     };
 
-    const createTable = (table) => {
-        return (
-            <Flows
-                        amount={table.amount}
-                        payment={table.payment}
-                        interest={table.interest}
-                        months={table.months}
-                    />
-        )
-    }
+    
 
     /* useEffect( () =>{
             createTable(table)
@@ -70,19 +60,9 @@ const Calculator = () => {
                         *Use only positive numbers
                 </Typography>
                 </Grid>
-            }
-            {table.amount === 0 ? <Typography variant="5"></Typography> : <Grid className={classes.button}>
-            <Button variant="contained" color="primary" >Build payments table</Button>
-            </Grid>
-            }            
+            }                      
         </>
     )
 }
 
 export default Calculator
-
-{/* <Grid className={classes.flows}>
-                <Paper elevation={3}>
-                    {createTable(table)}
-                </Paper>
-            </Grid> */}

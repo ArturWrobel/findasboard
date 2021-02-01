@@ -77,11 +77,6 @@ export default function StickyHeadTable(props) {
     }
     return (
         <Paper className={classes.root}>
-            <Typography variant="h5">
-                {props.amount} {" "}
-                {props.payment}{" "}
-                {props.months}{" "}
-            </Typography>
             <TableContainer className={classes.container}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
@@ -91,6 +86,7 @@ export default function StickyHeadTable(props) {
                                     key={column.id}
                                     align={column.align}
                                     style={{ minWidth: column.minWidth }}
+                                    className={classes.titleRow}
                                 >
                                     {column.label}
                                 </TableCell>

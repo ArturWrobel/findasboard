@@ -32,7 +32,7 @@ export default function ClippedDrawer() {
                             height="50px"
                             className={classes.image} />
                     </Link>
-                    <Typography variant="h5" noWrap>
+                    <Typography variant="h5" noWrap className={classes.titleSidebar}>
                         Orange Finance Team
                     </Typography>
                 </Toolbar>

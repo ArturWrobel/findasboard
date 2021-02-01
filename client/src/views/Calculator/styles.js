@@ -1,27 +1,36 @@
 const calculatorStyle = {
     title: {
-        backgroundColor: 'orange',
+        backgroundColor: '#FF7A01',
         fontWeight: 'bold',
-        marginBottom: 20,
+        marginBottom: '1.5vh',
         textAlign: 'center'
     },
     subtitle: {
+        backgroundColor: '#eeeeee',
+
         textAlign: 'center',
         alignItems: 'center'
     },
     inputs: {
-        marginTop: 20,
-        padding: 20,
+        backgroundColor: '#eeeeee',
+        marginTop: '1.5vh',
+        padding: '1.5vh',
+        height: '68vh'
     },
     waiting: {
         textAlign: 'center',
-        marginTop: 50,
+        marginTop: '20vh',
     },
     comment: {
         color: 'rgba(102, 153, 153, .75)',
     },
     button: {
         alignItems: 'center',
+        justifyContent: 'center',
+        color: 'red'
+    },
+    textField: {
+        backgroundColor: 'white'
     },
 
 
@@ -31,17 +40,19 @@ const calculatorStyle = {
         justifyContent: 'space-between'
     },
     result: {
-        marginTop: 50,
+        marginTop: '2vh',
+        marginBottom: '2vh',
         textAlign: 'center'
     },
     score: {
         fontWeight: 'bold',
-        fontSize: 20,
-        color: 'green',
-        backgroundColor: 'lightgrey',
-        padding: "10px 20px 10px",
+        fontSize: '2.5vh',
+        color: 'black',
+        backgroundColor: 'white',
+        padding: "5px 10px 5px",
         borderRadius: "5px",
-        margin: "0 10px 0"
+        border: "3px solid #FF7A01",
+        margin: "0 10px 0",
     }
 }
 

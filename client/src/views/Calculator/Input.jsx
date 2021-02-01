@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { TextField, Typography, Grid, Paper} from "@material-ui/core/"
 import { makeStyles } from "@material-ui/core/styles";
+import Flows from './Flows'
 
 import { rate } from 'financial'
 
@@ -28,6 +29,17 @@ export default function Input(props) {
         props.handleChange(values)
         // Calling the method to sum the value
         calcTotal(values)
+    }
+
+    const createTable = (table) => {
+        return (
+            <Flows
+                        amount={table.amount}
+                        payment={table.payment}
+                        interest={table.interest}
+                        months={table.months}
+                    />
+        )
     }
 
     useEffect(() => { 
@@ -106,6 +118,7 @@ export default function Input(props) {
         <>
             <form noValidate autoComplete="off" className={classes.data}>
                 <TextField
+                    className={classes.textField}
                     disabled={amt}
                     id="amount"
                     name="amount"
@@ -115,6 +128,7 @@ export default function Input(props) {
                     placeholder="0.00 EUR"
                     onChange={values_handler} />
                 <TextField
+                    className={classes.textField}
                     disabled={pay}
                     id="payment"
                     name="payment"
@@ -124,6 +138,7 @@ export default function Input(props) {
                     placeholder="0.00 EUR"
                     onChange={values_handler} />
                 <TextField
+                    className={classes.textField}
                     disabled={int}
                     id="interest"
                     name="interest"
@@ -133,6 +148,7 @@ export default function Input(props) {
                     placeholder="0.00 %"
                     onChange={values_handler} />
                 <TextField
+                    className={classes.textField}
                     id="months"
                     name="months"
                     label="Number of Payments*"
@@ -144,11 +160,19 @@ export default function Input(props) {
             <Grid className={classes.result}>
                 <Typography variant="h6">
                     {result}:
-                    <span className={classes.score}> {total.toLocaleString('en-US', { maximumFractionDigits: 2 })} </span>
+                    <span className={classes.score}> {total.toLocaleString('en-US', 
+                    { maximumFractionDigits: 2 })} </span>
                     {after}
                 </Typography>
                 
-            </Grid>            
-        </>
+            </Grid>           
+            {values.amount === 0 ? <Typography variant="5"></Typography> : 
+                <Grid className={classes.flows}>
+                <Paper elevation={3}>
+                    {createTable(values)}
+                </Paper>
+            </Grid>
+            } 
+            </>
     )
 }
