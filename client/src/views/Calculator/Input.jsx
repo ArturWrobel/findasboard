@@ -27,7 +27,6 @@ export default function Input(props) {
         let name = e.target.name;
         let value = e.target.value;
         setValues({ ...values, [name]: value })
-        props.handleChange(values)
         // Calling the method to sum the value
         calcTotal(values)
     }
@@ -85,7 +84,7 @@ export default function Input(props) {
                     aux = 0
                 } else {
                     aux = [rate(months, (-1 * payment), amount, 0, 'end') * 100 * 12]
-                    setOutcome([amount , payment, aux, months])
+                    setOutcome([amount , payment, aux/100, months])
                 }
                 break
             case 'payment':

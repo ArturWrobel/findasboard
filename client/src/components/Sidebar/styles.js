@@ -10,7 +10,6 @@ export default makeStyles((theme) => ({
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
         backgroundColor: "black",
-        height: "7vh"
     },
     drawer: {
         width: drawerWidth,
@@ -29,9 +28,5 @@ export default makeStyles((theme) => ({
         marginRight: "20px",
         alignItems: 'center',
         justifyContent: 'center',
-        height: '6vh'
     },
-    titleSidebar: {
-        fontSize: '3vh'
-    }
 }));

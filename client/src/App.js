@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { Typography, CircularProgress, Container, Paper } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Chart, Sidebar } from './components';
+import { Sidebar } from './components';
 import { Contact, Dashboard, Calculator, Charts, HomePage, Maps, Tables } from './views'
 import { getChartData } from './store/actions/charts';
 
@@ -20,9 +20,8 @@ const App = () => {
 
     const xxx = useSelector(state => state.charts)
 
-    console.log('...........to tu')
-    console.log(xxx)
     console.log('...........')
+    console.log(xxx)
 
     return (
         <Router>

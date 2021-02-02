@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Paper, Grid, Button } from "@material-ui/core/"
+import { Typography, Paper, Grid } from "@material-ui/core/"
 import Radio from './Radio'
 import Input from './Input'
 
@@ -10,31 +10,12 @@ const useStyles = makeStyles(styles)
 
 const Calculator = () => {
     const [show, setShow] = useState('nothing')
-    const initialTable = {
-        amount: 0,
-        payment: 0,
-        interest: 0,
-        months: 0
-    }
-    const [table, setTable] = useState(initialTable)
+
     const classes = useStyles();
 
     const handleChangeRadio = radioButtonValue => {
-
         setShow(radioButtonValue)
     };
-
-    const handleChangeInput = (inputValue) => {
-        setTable(inputValue)
-        console.log('-----------------')
-        console.log(table)
-    };
-
-    
-
-    /* useEffect( () =>{
-            createTable(table)
-    }, [table])   */ 
 
     return (
         <>
@@ -54,7 +35,7 @@ const Calculator = () => {
             </Typography> :
                 <Grid>
                     <Paper className={classes.inputs} elevation={3}>
-                        <Input name={show} handleChange={handleChangeInput}/>
+                        <Input name={show}/>
                     </Paper>
                     <Typography className={classes.comment}>
                         *Use only positive numbers

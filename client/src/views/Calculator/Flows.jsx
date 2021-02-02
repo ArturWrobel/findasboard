@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Typography }
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow }
     from '@material-ui/core'
 
 import styles from './stylesFlows.js'
@@ -25,14 +25,14 @@ export default function StickyHeadTable(props) {
         { id: 'no', label: 'No.' },
         { id: 'date', label: 'Date', minWidth: 100 },
         {
-            id: 'instalment', label: 'Instalment', minWidth: 100, align: 'right',
+            id: 'residual', label: 'Residual', minWidth: 100, align: 'right',
             format: (value) => value.toLocaleString('en-US', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             })
         },
         {
-            id: 'residual', label: 'Residual', minWidth: 100, align: 'right',
+            id: 'instalment', label: 'Instalment', minWidth: 100, align: 'right',
             format: (value) => value.toLocaleString('en-US', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
@@ -50,30 +50,47 @@ export default function StickyHeadTable(props) {
             format: (value) => value.toFixed(2),
         },
     ];
-    
-    function createData(no, date, instalment, residual, capital, interest) {
-        return { no, date, instalment, residual, capital, interest };
+
+    function createData(no, date, residual, instalment, capital, interest) {
+        return { no, date, residual, instalment, capital, interest };
     }
-    
+
     let months = props.months
     let amount = props.amount
     let instalment = props.payment
-    let interest = props.interest/100
+    let interest = props.interest
 
     let today = new Date()
     today.setMonth(today.getMonth() - 1)
-    let i, capital
+    let i, capital, x, residual
+    let intCumulative = 0
     let rows = []
-    
+
     for (i = 0; i <= months; i++) {
-        let residual = amount - instalment * i
+        if (i === 0) {
+            instalment = 0
+            residual = 0
+            capital = 0
+            x = 0
+        }
+        else {
+            instalment = props.payment
+            x = 1
+        }
         let date = today
         date.setMonth(date.getMonth() + 1)
-        let int = residual* interest
-        capital = instalment - int
-        /* console.log("Number", i, "Data", date.toISOString().slice(0, 10), "instalment", instalment,
-            "Amount", residual, "Capital", capital, "Interest", 10) */
-        rows.push(createData(i, date.toISOString().slice(0, 10), instalment, residual, capital, int))
+
+        let int = (residual * interest / 12) * x
+        capital = ((instalment - int) * x)
+        intCumulative = intCumulative + capital
+
+        residual = Math.abs(amount - intCumulative)
+
+        rows.push(createData(i, date.toISOString().slice(0, 10), residual, instalment, capital, int))
+        console.log("instalment " + instalment)
+        console.log("interest " + interest)
+        console.log("int " + int)
+
     }
     return (
         <Paper className={classes.root}>
