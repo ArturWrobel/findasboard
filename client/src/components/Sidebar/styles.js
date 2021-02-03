@@ -29,4 +29,14 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    bottomDrawer: {
+        position: 'absolute',
+        bottom: '5px',
+        left: '40px',
+        textDecoration: "none"
+    },
+    name: {
+        textDecoration: "none",
+        color: "brown"
+    }
 }));

@@ -20,7 +20,7 @@ import useStyles from './styles';
 
 export default function ClippedDrawer() {
     const classes = useStyles();
-
+    const email = "artur.wrobel@orange.com"
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -47,7 +47,7 @@ export default function ClippedDrawer() {
                 <Toolbar />
                 <div className={classes.drawerContainer}>
                     <List>
-                        {['Home', 'Dashboard', 'Calculator','Tables',  'Maps',  'Charts'].map((text, index) => (
+                        {['Home', 'Dashboard', 'Calculator', 'Tables', 'Maps', 'Charts'].map((text, index) => (
                             <ListItem
                                 button key={text}
                                 component={Link} to={`/${text}`}
@@ -72,9 +72,14 @@ export default function ClippedDrawer() {
                             <ListItemText primary={'Contact me'} />
                         </ListItem>
                     </List>
+                    <div className={classes.bottomDrawer}>
+                        <Typography>
+                            <a className={classes.name} href={`mailto:${email}`}>Artur Wróbel ©</a>
+                        </Typography>
+                    </div>
                 </div>
             </Drawer>
-            
+
             <main className={classes.content}>
                 <Toolbar />
             </main>

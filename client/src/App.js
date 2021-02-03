@@ -65,7 +65,6 @@ const App = () => {
                 </Route>
                 <Route exact path="/Contact" >
                     <div className={classes.content}>
-                        <Typography>Contact</Typography>
                         <Contact/>
                     </div>
                 </Route>
