@@ -74,7 +74,7 @@ export default function ClippedDrawer() {
                     </List>
                     <div className={classes.bottomDrawer}>
                         <Typography>
-                            <a className={classes.name} href={`mailto:${email}`}>Artur Wróbel ©</a>
+                            <a className={classes.name} href={`mailto:${email}`}>Artur Wróbel<sup>©</sup></a>
                         </Typography>
                     </div>
                 </div>

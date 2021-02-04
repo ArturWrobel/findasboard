@@ -1,9 +1,18 @@
 const homeStyle = {
     test : {
-        marginTop: 75,
-        backgroundColor: 'red',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
     },
+    top: {
+color: 'red'
+    },
+    mid: {
+        color: '#61dafb'
+
+    },
+    bottom: {
+        color: 'brown'
+
+    }
     }
 
 export default homeStyle;

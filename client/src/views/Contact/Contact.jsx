@@ -47,10 +47,9 @@ const Contact = () => {
             </Grid>
             <Grid className={classes.bottomText}>
                 <Typography variant="p">
-                    Created and supported by 
-                    <a className={classes.name} href={`mailto:${email}`}> Artur Wróbel </a>           
-                    
-                    ©. All mistakes are mine.
+                    Created and supported by
+                    <a className={classes.name} href={`mailto:${email}`}> Artur Wróbel</a>
+                    <sup>©</sup> . All mistakes are mine.
                 </Typography>
             </Grid>
         </>
