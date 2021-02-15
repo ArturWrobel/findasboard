@@ -7,7 +7,7 @@ const contactStyle = {
         width: '10%',
         minHeight: 100,
         height: '10%',
-        marginRight: '10%',
+        marginRight: '10%'
     },
     subtitle: {
         marginTop: 20,

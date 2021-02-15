@@ -1,9 +1,9 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Divider } from "@material-ui/core/"
+import { Grid, Typography, Divider, Paper, Avatar } from "@material-ui/core/"
 
 import styles from './styles.js'
-import reactLogo from '../../assets/reactLogo.jpg'
+import reactLogo from '../../assets/reactLogo.png'
 
 const useStyles = makeStyles(styles)
 
@@ -13,68 +13,57 @@ const Home = () => {
 
     return (
         <>
-            <Grid className={classes.top}>
 
-                <Grid container className={classes.test}>
-                    <Typography variant="h3">
-                        Welcome to React
-                </Typography>
+            <Paper className={classes.page} elevation={3}>
+
+                <Grid className={classes.top}>
+                    <Grid>
+                        <Typography variant="h6">
+                            Do we want to build solid tools and automate Finances?
+                    </Typography>
+                        <Typography variant="h6">
+                            Are we ready to go mobile?
+                    </Typography>
+                    </Grid>
+                </Grid>
+                <Divider />
+
+                <Grid className={classes.mid}>
+                    <Grid container className={classes.title}>
+                        <img alt="Artur Wróbel" src={reactLogo} className={classes.logo} />
+                        <Grid>
+                            <Typography variant="h5">
+                                Let's try something new:
+                        </Typography>
+                            <Typography variant="h2">
+                                REACT
+                        </Typography>
+                            <Typography variant="h5">
+                                A JavaScript library for building user interfaces
+                        </Typography>
+                        </Grid>
+                        <img alt="Artur Wróbel" src={reactLogo} className={classes.logo} />
+                    </Grid>
 
                 </Grid>
-                <Grid>
-                    <Typography variant="h4">
-                        DNA demo
-                </Typography>
+
+                <Grid className={classes.bottom}>
+                    <Grid>
+                        <Typography variant="p">
+                            My aim is to show what can be done and encourage you to build new tools with React.{' '}
+                    </Typography>
+                        <Typography variant="p">
+                            "It helps us create the most engaging web apps efficiently and fast with minimal coding."
+                    </Typography>
+                        <Typography variant="p">
+                        {' '}REACT is most convenient for user interface (UI) development.
+                    </Typography>
+                        <Typography variant="p">
+                        {' '}It will make jobs easier and faster (mobile tools with REACT Native).
+                    </Typography>
+                    </Grid>
                 </Grid>
-                <Grid>
-                    <Typography variant="h6">
-                        We face quickly changing environment.
-                </Typography>
-                    <Typography variant="h6">
-                        Our organization needs tools to keep up and automate to focus on more value adding areas.
-                </Typography>
-                    <Typography variant="h6">
-                        We have great Python experts, Power BI and Data Scientists.
-                </Typography>
-                </Grid>
-
-            </Grid>
-<Divider/>
-            <Grid className={classes.mid}>
-                <Grid>
-                    <Typography variant="h5">
-                        Let's try something more:
-            </Typography>
-                    <Typography variant="h3">
-                        REACT
-            </Typography>
-                    <Typography variant="h5">
-                        A JavaScript library for building user interfaces
-            </Typography>
-                </Grid>
-            </Grid>
-
-
-<Divider/>
-
-            <Grid className={classes.bottom}>
-                <Grid>
-                    <Typography variant="h5">
-                        My aim is to show You what can be done and encourage you to build new tools with React.
-            </Typography>
-                    <Typography variant="h5">
-                        "It helps us create the most engaging web apps efficiently and fast with minimal coding."
-            </Typography>
-                    <Typography variant="h5">
-                        REACT is most convenient for user interface (UI) development.
-            </Typography>
-                    <Typography variant="h5">
-                        It will make jobs easier and faster.
-            </Typography>
-                </Grid>
-            </Grid>
-
-
+            </Paper>
         </>
     )
 }
