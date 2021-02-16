@@ -42,7 +42,6 @@ const App = () => {
                 </Route>
                 <Route exact path="/Tables" >
                     <div className={classes.content}>
-                        <Typography>Tables</Typography>
                         <Tables/>
                     </div>
                 </Route>

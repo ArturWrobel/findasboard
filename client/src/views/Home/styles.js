@@ -10,25 +10,24 @@ const homeStyle = {
         marginTop: '1%'
     },
     mid: {
-        marginTop: '20%',
+        marginTop: '18%',
         color: '#61dafb',
         backgroundColor: '#282c34',
         textAlign: 'center',
         padding: '10px'
     },
-    bottom: {
-        position: 'absolute',
-        marginLeft: '40%',
-        marginRight: '2%',
-        bottom: '0.1%',
-    },
     logo: {
-        backgroundColor: 'transparent',
-        color: 'white',
         width: '10%',
     },
     title: {
         justifyContent: 'space-between',
+    },
+    popover: {
+        pointerEvents: 'none',
+    },
+    orange: {
+        color: '#FF7A01',
+
     }
 }
 

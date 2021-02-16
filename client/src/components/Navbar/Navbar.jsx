@@ -13,34 +13,34 @@ const Navbar = () => {
 
     return (
         <AppBar position="fixed" className={classes.appBar} color="inherit">
-                <Toolbar>
-                    <Typography 
-                    component={Link} to="/" 
-                    variant="h6" 
-                    className={classes.title} 
+            <Toolbar>
+                <Typography
+                    component={Link} to="/"
+                    variant="h6"
+                    className={classes.title}
                     color="inherit">
-                        <img src={logo} 
+                    <img src={logo}
                         alt="commerce.js"
-                        height="50px" 
+                        height="50px"
                         className={classes.image} />
                         Orange Finance
                     </Typography>
-                    <div className={classes.grow} />
-                    {/* {location.pathname === '/' && ( */}
-                        <div className={classes.button}>
-                            <IconButton 
-                            component={Link} 
-                            to="/chart1" 
-                            aria-label="Show cart items" 
-                            color="inherit">
-                                <Badge  color="secondary">
-                                    <ShoppingCart />
-                                </Badge>
-                            </IconButton>
-                        </div>
-                    {/* )} */}
-                </Toolbar>
-            </AppBar>
+                <div className={classes.grow} />
+                {/* {location.pathname === '/' && ( */}
+                <div className={classes.button}>
+                    <IconButton
+                        component={Link}
+                        to="/chart1"
+                        aria-label="Show cart items"
+                        color="inherit">
+                        <Badge color="secondary">
+                            <ShoppingCart />
+                        </Badge>
+                    </IconButton>
+                </div>
+                {/* )} */}
+            </Toolbar>
+        </AppBar>
     )
 }
 
