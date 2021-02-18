@@ -1,12 +1,7 @@
 import React from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography }
+    from '@material-ui/core';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -26,17 +21,11 @@ const StyledTableRow = withStyles((theme) => ({
     },
 }))(TableRow);
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+function createData(project, Investment, I, II, III, IV, V) {
+    return { project, Investment, I, II, III, IV, V };
 }
 
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
+
 
 const useStyles = makeStyles({
     table: {
@@ -44,31 +33,47 @@ const useStyles = makeStyles({
     },
 });
 
-export default function CustomizedTables() {
+export default function CustomizedTables(props) {
     const classes = useStyles();
-
+const rows = [
+    createData(props.data[0]['Project'], props.data[0]['Investment'], props.data[0]['Flow I'], props.data[0]['Flow II'],
+    props.data[0]['Flow III'], props.data[0]['Flow IV'], props.data[0]['Flow V']),
+    createData(props.data[1]['Project'], props.data[1]['Investment'], props.data[1]['Flow I'], props.data[1]['Flow II'],
+    props.data[1]['Flow III'], props.data[1]['Flow IV'], props.data[1]['Flow V']),
+    createData(props.data[2]['Project'], props.data[2]['Investment'], props.data[2]['Flow I'], props.data[2]['Flow II'],
+    props.data[2]['Flow III'], props.data[2]['Flow IV'], props.data[2]['Flow V']),
+    createData(props.data[3]['Project'], props.data[3]['Investment'], props.data[3]['Flow I'], props.data[3]['Flow II'],
+    props.data[3]['Flow III'], props.data[3]['Flow IV'], props.data[3]['Flow V']),
+];
     return (
         <TableContainer component={Paper}>
+            <Typography variant="h1">
+                {props.data[0]['Inwestment']}
+            </Typography>
             <Table className={classes.table} aria-label="customized table">
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-                        <StyledTableCell align="right">Calories</StyledTableCell>
-                        <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-                        <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-                        <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+                        <StyledTableCell>Project</StyledTableCell>
+                        <StyledTableCell align="right">Investment</StyledTableCell>
+                        <StyledTableCell align="right">Flow I</StyledTableCell>
+                        <StyledTableCell align="right">Flow II</StyledTableCell>
+                        <StyledTableCell align="right">Flow III</StyledTableCell>
+                        <StyledTableCell align="right">Flow IV</StyledTableCell>
+                        <StyledTableCell align="right">Flow V</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
                         <StyledTableRow key={row.name}>
                             <StyledTableCell component="th" scope="row">
-                                {row.name}
+                                {row.project}
                             </StyledTableCell>
-                            <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                            <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                            <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                            <StyledTableCell align="right">{row.protein}</StyledTableCell>
+                            <StyledTableCell align="right">{row.Investment}</StyledTableCell>
+                            <StyledTableCell align="right">{row.I}</StyledTableCell>
+                            <StyledTableCell align="right">{row.II}</StyledTableCell>
+                            <StyledTableCell align="right">{row.III}</StyledTableCell>
+                            <StyledTableCell align="right">{row.IV}</StyledTableCell>
+                            <StyledTableCell align="right">{row.V}</StyledTableCell>
                         </StyledTableRow>
                     ))}
                 </TableBody>

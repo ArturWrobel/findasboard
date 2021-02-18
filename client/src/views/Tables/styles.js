@@ -2,13 +2,26 @@ const tablesStyle = {
     title: {
         backgroundColor: '#FF7A01',
         fontWeight: 'bold',
-        marginBottom: '1.5vh',
+        marginBottom: '10px',
         textAlign: 'center'
     },
     drag: {
-        backgroundColor: 'white',
         textAlign: 'center'
+    },
+    loader: {
+        height: '100px',
+    },
+    table: {
+        marginTop: '10px',
+        textAlign: 'center'
+    },
+    charts: {
+        marginTop: '10px',
+        justifyContent: 'space-between',
+    },
+    nivo: {
+        margin: '10px',
     }
-    }
+}
 
 export default tablesStyle;

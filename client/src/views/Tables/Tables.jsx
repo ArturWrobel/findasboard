@@ -5,6 +5,7 @@ import { useDropzone } from 'react-dropzone'
 import * as XLSX from "xlsx"
 
 import Data from "./Data"
+import { Chart, Chart1, Example, Nivo } from "../../components"
 import styles from './styles.js'
 
 
@@ -12,7 +13,7 @@ const useStyles = makeStyles(styles)
 
 const Tables = () => {
     const classes = useStyles();
-    const [data, setData] = useState([])
+    const [data, setData] = useState()
 
     const onDrop = useCallback((acceptedFiles) => {
         acceptedFiles.forEach((file) => {
@@ -33,12 +34,12 @@ const Tables = () => {
         })
     }, [])
 
-    const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop }, {accept: 'image/jpeg, image/png'})
+    const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
     const files = acceptedFiles.map(file => (
-        <li key={file.path}>
+        <p key={file.path}>
             {file.path} - {file.size} bytes
-        </li>
+        </p>
     ))
     console.log(acceptedFiles.length)
     console.log('accepted')
@@ -50,33 +51,51 @@ const Tables = () => {
     //console.log(data[0]['Project'])
     console.log('state')
 
-
-
     return (
         <>
             <Paper elevation={3} className={classes.title}>
-                <Typography variant="h4" >
+                <Typography variant="h4">
                     Read and analyze table
                     </Typography>
             </Paper>
-            <Paper elevation={3} className={classes.drag}
+            <Paper elevation={3}
                 {...getRootProps({ className: ['dropzone', classes.drag] })}
             >
-                {isDragActive ? "Drop it like it's hot!" : 'Click me or drag a file to upload!'}
-                <input {...getInputProps()}
-                />
-                <Typography variant="h5" >
-                    Drag and drop here
+                {isDragActive ? <Typography variant="h5" className={classes.loader}>Drop it like it's hot!</Typography>
+                    :
+                    <Paper className={classes.loader}>
+                        <Typography variant="h5" >
+                            Drag and drop here
                     </Typography>
-                <Typography variant="h6" >
-                    or click to chose file
+                        <Typography variant="h6" >
+                            or click to chose file
                     </Typography>
-                {files}
+                        {files}
+                    </Paper>
+                }
+                <input {...getInputProps()} />
             </Paper>
 
-            <Paper elevation={3}>
-                {!data ? <Data/> : <Typography variant="h4"> Import Data from file </Typography>}
-                
+            <Paper elevation={3} className={classes.table}>
+                {data ? <Data data={data} /> : <Typography variant="h6"> Import data from file </Typography>}
+            </Paper>
+
+            <Paper elevation={3} className={classes.table}>
+                <Grid container className={classes.charts}>
+                    <Grid className={classes.nivo}>
+                        <Paper elevation={2}>
+                            <Nivo />
+                        </Paper>
+                    </Grid>
+                    <Grid className={classes.nivo}>
+                        <Paper elevation={2}>
+                            <Chart />
+                        </Paper>
+                    </Grid>
+                    <Example />
+
+                </Grid>
+
             </Paper>
         </>
     )
