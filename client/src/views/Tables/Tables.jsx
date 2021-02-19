@@ -5,7 +5,7 @@ import { useDropzone } from 'react-dropzone'
 import * as XLSX from "xlsx"
 
 import Data from "./Data"
-import { Chart, Chart1, Example, Nivo } from "../../components"
+import { Chart, Example1, Example, Nivo, FlowsChart } from "../../components"
 import styles from './styles.js'
 
 
@@ -84,18 +84,22 @@ const Tables = () => {
                 <Grid container className={classes.charts}>
                     <Grid className={classes.nivo}>
                         <Paper elevation={2}>
-                            <Nivo />
+                            <FlowsChart  data={data}
+                            xxx = {11}
+                            />
                         </Paper>
                     </Grid>
                     <Grid className={classes.nivo}>
                         <Paper elevation={2}>
-                            <Chart />
+                            <Example />
                         </Paper>
                     </Grid>
-                    <Example />
-
                 </Grid>
-
+                <Grid className={classes.nivo}>
+                        <Paper elevation={2}>
+                            <Example1 />
+                        </Paper>
+                    </Grid>
             </Paper>
         </>
     )
