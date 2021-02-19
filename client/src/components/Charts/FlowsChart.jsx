@@ -1,78 +1,64 @@
 import React, { PureComponent } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Paper, Typography } from '@material-ui/core';
+import { Paper, Typography, Grid } from '@material-ui/core';
 
-
-
-
-export default class Example extends PureComponent {
-    constructor(props) {
-        super(props);
-
-    this.data = [
+export default function Example(props) {
+    const newData = [
         {
-            name: 'Page A',
-            uv: 4000,
-            pv: 2400,
-            amt: 2400,
+            name: 'Invested',
+            [props.data[0]['Project']]: props.data[0]['Investment'],
+            [props.data[1]['Project']]: props.data[1]['Investment'],
+            [props.data[2]['Project']]: props.data[2]['Investment'],
+            [props.data[3]['Project']]: props.data[3]['Investment'],
         },
         {
-            name: 'Page B',
-            uv: 3000,
-            pv: 1398,
-            amt: 2210,
+            name: 'Flow I',
+            [props.data[0]['Project']]: props.data[0]['Flow I'],
+            [props.data[1]['Project']]: props.data[1]['Flow I'],
+            [props.data[2]['Project']]: props.data[2]['Flow I'],
+            [props.data[3]['Project']]: props.data[3]['Flow I'],
         },
         {
-            name: 'Page C',
-            uv: 2000,
-            pv: 9800,
-            amt: 2290,
+            name: 'Flow II',
+            [props.data[0]['Project']]: props.data[0]['Flow II'],
+            [props.data[1]['Project']]: props.data[1]['Flow II'],
+            [props.data[2]['Project']]: props.data[2]['Flow II'],
+            [props.data[3]['Project']]: props.data[3]['Flow II'],
         },
         {
-            name: 'Page D',
-            uv: 2780,
-            pv: 3908,
-            amt: 2000,
+            name: 'Flow III',
+            [props.data[0]['Project']]: props.data[0]['Flow III'],
+            [props.data[1]['Project']]: props.data[1]['Flow III'],
+            [props.data[2]['Project']]: props.data[2]['Flow III'],
+            [props.data[3]['Project']]: props.data[3]['Flow III'],
         },
         {
-            name: 'Page E',
-            uv: 1890,
-            pv: 4800,
-            amt: 2181,
+            name: 'Flow IV',
+            [props.data[0]['Project']]: props.data[0]['Flow IV'],
+            [props.data[1]['Project']]: props.data[1]['Flow IV'],
+            [props.data[2]['Project']]: props.data[2]['Flow IV'],
+            [props.data[3]['Project']]: props.data[3]['Flow IV'],
         },
         {
-            name: 'Page F',
-            uv: 2390,
-            pv: 3800,
-            amt: 2500,
-        },
-        {
-            name: 'Page G',
-            uv: 3490,
-            pv: 4300,
-            amt: 2100,
+            name: 'Flow V',
+            [props.data[0]['Project']]: props.data[0]['Flow V'],
+            [props.data[1]['Project']]: props.data[1]['Flow V'],
+            [props.data[2]['Project']]: props.data[2]['Flow III'],
+            [props.data[3]['Project']]: props.data[3]['Flow V'],
         },
     ];
-    }
-    
-    render() {
-        return (
-            <ResponsiveContainer width="100%" height="100%">
-                <Paper>
-                    <Typography>
-                        {!this.props.data ? 'xxx' : this.props.data[0]['Investment']}
-                    </Typography>
-                    <Typography>
-                        {this.props.xxx}
-                    </Typography>
-                    <Typography>
-                      {this.xxx} 
-                      {this.yyy} 
-                    </Typography>
+
+    return (
+        <ResponsiveContainer width="100%" height="100%">
+            <Paper>
+                <Grid style={{ 'padding': '20px' }}>
+                    <Typography variant="h6">
+                        Flows during project life
+                </Typography>
                     <BarChart
-                        width={500}
-                        height={300}
-                        data={this.data}
+                        width={700}
+                        height={400}
+                        data={newData}
                         margin={{
                             top: 5,
                             right: 30,
@@ -85,11 +71,15 @@ export default class Example extends PureComponent {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="pv" fill="#8884d8" background={{ fill: '#eee' }} />
-                        <Bar dataKey="uv" fill="#82ca9d" />
+                        <Bar dataKey={props.data[0]['Project']} fill="#FF8E72" background={{ fill: '#eee' }} />
+                        <Bar dataKey={props.data[1]['Project']} fill="#4CE0B3" />
+                        <Bar dataKey={props.data[2]['Project']} fill="#F4B266" background={{ fill: '#eee' }} />
+                        <Bar dataKey={props.data[3]['Project']} fill="#648DE5" />
                     </BarChart>
-                </Paper>
-            </ResponsiveContainer>
-        );
-    }
+                </Grid>
+            </Paper>
+
+        </ResponsiveContainer>
+    );
+
 }

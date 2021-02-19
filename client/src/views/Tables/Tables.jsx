@@ -1,11 +1,11 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography, Paper } from "@material-ui/core/"
 import { useDropzone } from 'react-dropzone'
 import * as XLSX from "xlsx"
 
 import Data from "./Data"
-import { Chart, Example1, Example, Nivo, FlowsChart } from "../../components"
+import { Chart, Example1, WeightsChart, Nivo, FlowsChart, NPVChart } from "../../components"
 import styles from './styles.js'
 
 
@@ -27,29 +27,19 @@ const Tables = () => {
                 const ws = wb.Sheets[wsname];
                 const data = XLSX.utils.sheet_to_json(ws);
                 setData(data)
-                console.log(data);
-                console.log(typeof (data))
-                console.log(data[0]['Project'])
             };
         })
     }, [])
 
-    const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+    const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone(
+        { onDrop,  maxFiles:1,
+            accept: 'application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
 
     const files = acceptedFiles.map(file => (
         <p key={file.path}>
             {file.path} - {file.size} bytes
         </p>
     ))
-    console.log(acceptedFiles.length)
-    console.log('accepted')
-    //const xxx = reader.readAsArrayBuffer(acceptedFiles[0])
-    console.log('after')
-    console.log(acceptedFiles[0])
-    console.log(typeof (files[0]))
-    console.log('state')
-    //console.log(data[0]['Project'])
-    console.log('state')
 
     return (
         <>
@@ -77,30 +67,35 @@ const Tables = () => {
             </Paper>
 
             <Paper elevation={3} className={classes.table}>
-                {data ? <Data data={data} /> : <Typography variant="h6"> Import data from file </Typography>}
+                {data ? <Data data={data} /> : <Grid className={classes.import}>
+                <Typography variant="h6" className={classes.importText}> To access analysis </Typography>
+                    <Typography variant="h5" > Import data from attached file </Typography>
+                    <Typography variant="h6"> (only one file at a time) </Typography>
+                </Grid>
+                }
             </Paper>
 
-            <Paper elevation={3} className={classes.table}>
-                <Grid container className={classes.charts}>
-                    <Grid className={classes.nivo}>
-                        <Paper elevation={2}>
-                            <FlowsChart  data={data}
-                            xxx = {11}
-                            />
-                        </Paper>
+            {data ?
+                (<Paper elevation={3} className={classes.table}>
+                    <Grid container className={classes.charts}>
+                        <Grid className={classes.nivo}>
+                            <Paper elevation={2}>
+                                <FlowsChart data={data} />
+                            </Paper>
+                        </Grid>
+                        <Grid className={classes.nivo}>
+                            <Paper elevation={2}>
+                                <NPVChart data={data} />
+                            </Paper>
+                        </Grid>
+                        <Grid className={classes.nivo}>
+                            <Paper elevation={2}>
+                                <WeightsChart data={data} />
+                            </Paper>
+                        </Grid>
                     </Grid>
-                    <Grid className={classes.nivo}>
-                        <Paper elevation={2}>
-                            <Example />
-                        </Paper>
-                    </Grid>
-                </Grid>
-                <Grid className={classes.nivo}>
-                        <Paper elevation={2}>
-                            <Example1 />
-                        </Paper>
-                    </Grid>
-            </Paper>
+                </Paper>)
+                : ""}
         </>
     )
 }

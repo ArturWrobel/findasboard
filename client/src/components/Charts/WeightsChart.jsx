@@ -1,13 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Sector } from "recharts";
-import { Paper } from '@material-ui/core';
-
-const data = [
-    { name: "Group A", value: 400 },
-    { name: "Group B", value: 300 },
-    { name: "Group C", value: 300 },
-    { name: "Group D", value: 200 }
-];
+import { Grid, Paper, Typography } from '@material-ui/core';
 
 const renderActiveShape = (props: any) => {
     const RADIAN = Math.PI / 180;
@@ -33,6 +26,8 @@ const renderActiveShape = (props: any) => {
     const ex = mx + (cos >= 0 ? 1 : -1) * 22;
     const ey = my;
     const textAnchor = cos >= 0 ? "start" : "end";
+
+    
 
     return (
         <g>
@@ -68,7 +63,7 @@ const renderActiveShape = (props: any) => {
                 y={ey}
                 textAnchor={textAnchor}
                 fill="#333"
-            >{`PV ${value}`}</text>
+            >{`${value} EUR`}</text>
             <text
                 x={ex + (cos >= 0 ? 1 : -1) * 12}
                 y={ey}
@@ -82,7 +77,7 @@ const renderActiveShape = (props: any) => {
     );
 };
 
-export default function App() {
+export default function App(props) {
     const [activeIndex, setActiveIndex] = useState(0);
     const onPieEnter = useCallback(
         (_, index) => {
@@ -90,10 +85,19 @@ export default function App() {
         },
         [setActiveIndex]
     );
+    const data = [
+        { name: props.data[0]['Project'], value: props.data[0]['Investment'] },
+        { name: props.data[1]['Project'], value: props.data[1]['Investment'] },
+        { name: props.data[2]['Project'], value: props.data[2]['Investment'] },
+        { name: props.data[3]['Project'], value: props.data[3]['Investment'] }
+    ];
 
     return (
         <Paper>
-
+            <Grid style={{'padding': '20px'}}>
+            <Typography variant="h6">
+                Weight of the project
+            </Typography>
             <PieChart width={400} height={400}>
                 <Pie
                     activeIndex={activeIndex}
@@ -103,11 +107,12 @@ export default function App() {
                     cy={200}
                     innerRadius={60}
                     outerRadius={80}
-                    fill="#8884d8"
+                    fill="#FF7A01"
                     dataKey="value"
                     onMouseEnter={onPieEnter}
                 />
             </PieChart>
+            </Grid>
         </Paper>
     );
 }
