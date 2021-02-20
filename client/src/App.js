@@ -53,7 +53,6 @@ const App = () => {
                 </Route>
                 <Route exact path="/Maps" >
                     <div className={classes.content}>
-                        <Typography>Maps</Typography>
                         <Maps/>
                     </div>
                 </Route>

@@ -53,11 +53,11 @@ export default function Example(props) {
             <Paper>
                 <Grid style={{ 'padding': '20px' }}>
                     <Typography variant="h6">
-                        Flows during project life
+                        Cashflow during project life
                 </Typography>
                     <BarChart
-                        width={700}
-                        height={400}
+                        width={800}
+                        height={430}
                         data={newData}
                         margin={{
                             top: 5,

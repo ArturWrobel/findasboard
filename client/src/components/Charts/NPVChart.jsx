@@ -1,12 +1,17 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Paper, Typography, Grid } from '@material-ui/core';
+import { Paper, Typography, Grid, Slider, }
+    from '@material-ui/core';
 
 import { npv } from 'financial'
 
 export default function Example(props) {
+    const [value, setValue] = useState(0.02)
 
-    const rate = 0.02
+    function valuetext(value) {
+        return `${value}°C`;
+    }
+    const rate = value
     const cashflows0 = [-props.data[0]['Investment'],
     props.data[0]['Flow I'], props.data[0]['Flow II'],
     props.data[0]['Flow III'], props.data[0]['Flow IV'], props.data[0]['Flow V']]
@@ -55,9 +60,15 @@ export default function Example(props) {
 
     const off = gradientOffset();
 
+    const handleSliderChange = (event, newValue) => {
+        setValue(newValue);
+        console.log(value);
+      };
+
     return (
         <ResponsiveContainer width="100%" height="100%">
             <Grid style={{ 'padding': '20px' }}>
+                
                 <Typography variant="h6">
                     Net Present Value
                 </Typography>
@@ -65,8 +76,8 @@ export default function Example(props) {
                 <Paper>
 
                     <AreaChart
-                        width={500}
-                        height={400}
+                        width={400}
+                        height={350}
                         data={data}
                         margin={{
                             top: 10,
@@ -88,6 +99,26 @@ export default function Example(props) {
                         <Area type="monotone" dataKey="uv" stroke="#000" fill="url(#splitColor)" />
                     </AreaChart>
                 </Paper>
+                <Grid>
+                <Grid style= {{'margin': '10px'}}>
+                    <Typography variant="h6" >
+                        Slide to set interest rate here:
+                    </Typography>
+                </Grid>                    
+                    <Slider
+                    key = {`slider - ${value}`}
+                    defaultValue={value}
+                    getAriaValueText={valuetext}
+                    aria-labelledby="discrete-slider"
+                    valueLabelDisplay="on"
+                    step={0.01}
+                    marks
+                    min={0.01}
+                    max={0.12}
+                    onChange={handleSliderChange}
+                />
+                </Grid>
+                
             </Grid>
         </ResponsiveContainer>
     );

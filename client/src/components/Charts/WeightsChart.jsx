@@ -93,7 +93,7 @@ export default function App(props) {
     ];
 
     return (
-        <Paper>
+        <Paper style={{'height': '500px'}}>
             <Grid style={{'padding': '20px'}}>
             <Typography variant="h6">
                 Weight of the project
