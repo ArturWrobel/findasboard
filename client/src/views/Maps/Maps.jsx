@@ -1,9 +1,9 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography } from "@material-ui/core/"
-//import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 import styles from './styles.js'
+import Map from './Map'
 
 const useStyles = makeStyles(styles)
 
@@ -18,18 +18,10 @@ const Maps = () => {
                     Maps...
                 </Typography>
             </Grid>
-            {/* <div id="mapid"></div>
-            <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-                <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={[51.505, -0.09]}>
-                    <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-    </Popup>
-                </Marker>
-            </MapContainer> */}
+            <Grid container className={classes.map}>
+                <Map />
+            </Grid>
+
         </>
     )
 }

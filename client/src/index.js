@@ -6,6 +6,7 @@ import thunk from 'redux-thunk'
 
 import reducers from './store/reducers'
 import App from './App'
+import 'leaflet/dist/leaflet.css'
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)))
 

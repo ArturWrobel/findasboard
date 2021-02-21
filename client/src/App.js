@@ -7,6 +7,7 @@ import { Sidebar } from './components';
 import { Contact, Dashboard, Calculator, Charts, HomePage, Maps, Tables } from './views'
 import { getChartData } from './store/actions/charts';
 
+
 import useStyles from './styles';
 
 const App = () => {
@@ -29,41 +30,41 @@ const App = () => {
             <Switch>
                 <Route exact path={["/", "/Home"]}>
                     <div className={classes.content}>
-                        <HomePage/>
+                        <HomePage />
                     </div>
                 </Route>
                 <Route exact path="/Charts">
                     <div className={classes.content}>
                         <Typography>
                             Chart
-                        </Typography> 
-                        <Charts/>
+                        </Typography>
+                        <Charts />
                     </div>
                 </Route>
                 <Route exact path="/Tables" >
                     <div className={classes.content}>
-                        <Tables/>
+                        <Tables />
                     </div>
                 </Route>
                 <Route exact path="/Dashboard" >
                     <div className={classes.content}>
                         <Typography>Dashboard</Typography>
-                        <Dashboard/>
+                        <Dashboard />
                     </div>
                 </Route>
                 <Route exact path="/Maps" >
                     <div className={classes.content}>
-                        <Maps/>
+                        <Maps />
                     </div>
                 </Route>
                 <Route exact path="/Calculator" >
                     <div className={classes.content}>
-                        <Calculator/>
+                        <Calculator />
                     </div>
                 </Route>
                 <Route exact path="/Contact" >
                     <div className={classes.content}>
-                        <Contact/>
+                        <Contact />
                     </div>
                 </Route>
             </Switch>

@@ -1,6 +1,6 @@
 const mapsStyle = {
-    test : {
-        justifyContent: 'space-between',
+    map : {
+        height: '500px',
     },
     }
 
