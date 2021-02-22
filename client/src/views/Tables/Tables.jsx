@@ -1,11 +1,11 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography, Paper } from "@material-ui/core/"
 import { useDropzone } from 'react-dropzone'
 import * as XLSX from "xlsx"
 
 import Data from "./Data"
-import { Chart, Example1, WeightsChart, Nivo, FlowsChart, NPVChart } from "../../components"
+import { WeightsChart, FlowsChart, NPVChart } from "../../components"
 import styles from './styles.js'
 
 

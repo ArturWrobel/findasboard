@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { InputLabel, Typography, MenuItem, FormControl, Select, Button, Grid } from '@material-ui/core';
 
@@ -7,18 +7,19 @@ const useStyles = makeStyles((theme) => ({
         display: 'block',
     },
     formControl: {
-        margin: theme.spacing(1),
+        marginTop: '100px',
         minWidth: 120,
     },
 }));
 
-export default function ControlledOpenSelect() {
+export default function ControlledOpenSelect({ onChildClick }) {
     const classes = useStyles();
-    const [city, setCity] = React.useState('Warsaw');
-    const [open, setOpen] = React.useState(false);
+    const [city, setCity] = useState('Warsaw');
+    const [open, setOpen] = useState(false);
 
     const handleChange = (event) => {
         setCity(event.target.value);
+        onChildClick(event.target.value)
     };
 
     const handleClose = () => {
@@ -53,10 +54,16 @@ export default function ControlledOpenSelect() {
                     onClose={handleClose}
                     onOpen={handleOpen}
                     onChange={handleChange}
+                    value = {'xxx'}
                 >
-                    <MenuItem value="Warsaw">Warsaw</MenuItem>
-                    <MenuItem value='Paris'>Paris</MenuItem>
-                    <MenuItem value='Madrid'>Madrid</MenuItem>
+                    <MenuItem key={1} value="Warsaw">Warsaw</MenuItem>
+                    <MenuItem key={2} value='Paris'>Paris</MenuItem>
+                    <MenuItem key={3} value='Madrid'>Madrid</MenuItem>
+                    <MenuItem key={4} value='Cairo'>Cairo</MenuItem>
+                    <MenuItem key={5} value='Brussels'>Brussels</MenuItem>
+                    <MenuItem key={6} value='Bucharest'>Bucharest</MenuItem>
+                    <MenuItem key={7} value='Bratislava'>Bratislava</MenuItem>
+                    <MenuItem key={0} value='Tunis'>Tunis</MenuItem>
                 </Select>
             </FormControl>
         </>

@@ -35,13 +35,13 @@ const Calculator = () => {
             </Typography> :
                 <Grid>
                     <Paper className={classes.inputs} elevation={3}>
-                        <Input name={show}/>
+                        <Input name={show} />
                     </Paper>
                     <Typography className={classes.comment}>
                         *Use only positive numbers
                 </Typography>
                 </Grid>
-            }                      
+            }
         </>
     )
 }

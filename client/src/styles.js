@@ -8,6 +8,7 @@ export default makeStyles((theme) => ({
         backgroundColor: '#eeeee1',
         marginLeft: setDrawerWidth,
         padding: theme.spacing(1),
-        minHeight: '92vh'
+        height: '100%',
+        minHeight: '94vh'
     },
 }));

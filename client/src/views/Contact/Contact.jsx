@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Avatar, Paper } from "@material-ui/core/"
+import { Grid, Typography, Avatar } from "@material-ui/core/"
 
 import styles from './styles.js'
 import mePicture from '../../assets/me.jpg'
@@ -46,7 +46,7 @@ const Contact = () => {
                 <MyForm />
             </Grid>
             <Grid className={classes.bottomText}>
-                <Typography variant="p">
+                <Typography>
                     Created and supported by
                     <a className={classes.name} href={`mailto:${email}`}> Artur Wróbel</a>
                     <sup>©</sup> . All mistakes are mine.
