@@ -2,7 +2,7 @@ const calculatorStyle = {
     title: {
         backgroundColor: '#FF7A01',
         fontWeight: 'bold',
-        marginBottom: '1.5vh',
+        marginBottom: '10px',
         textAlign: 'center'
     },
     subtitle: {

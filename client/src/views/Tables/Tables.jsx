@@ -44,8 +44,8 @@ const Tables = () => {
     return (
         <>
             <Paper elevation={3} className={classes.title}>
-                <Typography variant="h4">
-                    Read and analyze investments
+                <Typography variant="h2">
+                    Analyze investments
                     </Typography>
             </Paper>
             <Paper elevation={3}

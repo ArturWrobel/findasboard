@@ -7,7 +7,6 @@ import { Sidebar } from './components';
 import { Contact, Dashboard, Calculator, Charts, HomePage, Maps, Tables } from './views'
 import { getChartData } from './store/actions/charts';
 
-
 import useStyles from './styles';
 
 const App = () => {
