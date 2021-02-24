@@ -56,7 +56,7 @@ export default function Example(props) {
                         Cashflow during project life
                 </Typography>
                     <BarChart
-                        width={800}
+                        width={700}
                         height={430}
                         data={newData}
                         margin={{

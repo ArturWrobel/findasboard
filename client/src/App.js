@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Sidebar } from './components';
-import { Contact, Dashboard, Calculator, Charts, HomePage, Maps, Tables } from './views'
+import { Contact, Dashboard, Calculator, Charts, HomePage, Maps, MoreMaps, Tables } from './views'
 import { getChartData } from './store/actions/charts';
 
 import useStyles from './styles';
@@ -54,6 +54,11 @@ const App = () => {
                 <Route exact path="/Maps" >
                     <div className={classes.content}>
                         <Maps />
+                    </div>
+                </Route>
+                <Route exact path="/MoreMaps" >
+                    <div className={classes.content}>
+                        <MoreMaps />
                     </div>
                 </Route>
                 <Route exact path="/Calculator" >

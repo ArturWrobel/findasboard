@@ -77,16 +77,15 @@ const Home = () => {
                     onMouseLeave={handlePopoverCloseMobile}>
                     <Grid>
                         <Typography variant="h6">
-                            Do we want to build <span className={classes.orange}>solid</span>  tools and <span className={classes.orange}>automate</span>  Finances?
+                            Looking for <span className={classes.orange}>solid</span>  tools and <span className={classes.orange}>automate</span>  Finances?
                         </Typography>
                         <Typography variant="h6">
-                            Do you like {''}
-                            <span className={classes.orange}>responsive</span> {' '}
+                            <span className={classes.orange}>Responsive</span> {' '}
                             and {' '}
                             <span className={classes.orange}>animated</span> dashboards?
                         </Typography>
                         <Typography variant="h6">
-                            Are we ready to go <span className={classes.orange}>mobile</span>?
+                            Ready to go <span className={classes.orange}>mobile</span>?
                         </Typography>
                     </Grid>
                 </Grid>
@@ -103,9 +102,9 @@ const Home = () => {
                             <img alt="Artur Wróbel" src={reactLogo} className={classes.logo} />
                         </Hidden>
                         <Grid>
-                            <Typography variant="h5">
+                            {/* <Typography variant="h5">
                                 Let's try something new:
-                        </Typography>
+                        </Typography> */}
                             <Typography variant="h2">
                                 REACT
                         </Typography>
@@ -126,7 +125,7 @@ const Home = () => {
                     onMouseEnter={handlePopoverOpenLower}
                     onMouseLeave={handlePopoverCloseLower}
                 >
-                    <Grid>
+                    {/* <Grid>
                         <Typography variant="h6" className={classes.orange}>
                             MISSION:
                         </Typography>
@@ -136,7 +135,7 @@ const Home = () => {
                         <Typography variant="h6">
                             and encourage to build new tools with React.{' '}
                         </Typography>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Paper>
             <div>

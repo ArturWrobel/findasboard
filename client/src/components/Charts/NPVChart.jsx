@@ -76,7 +76,7 @@ export default function Example(props) {
                 <Paper>
 
                     <AreaChart
-                        width={400}
+                        width={350}
                         height={350}
                         data={data}
                         margin={{
