@@ -3,10 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography, Paper } from "@material-ui/core/"
 
 import styles from './styles.js'
-
-/* import CitySelect from './City'
 import Map from './Map'
-import Zones from './Zones' */
 
 const useStyles = makeStyles(styles)
 
@@ -31,11 +28,13 @@ const MoreMaps = () => {
                 </Typography>
                 <Grid className={classes.button}>
                     {/* <CitySelect onChildClick={handleChildClick} /> */}
+                    
                 </Grid>
             </Paper>
             <Paper elevation={3}>
                 <Grid container className={classes.map}>
                     {/* <Map city={choice} /> */}
+                    <Map/>
                 </Grid>
             </Paper>
             <Paper elevation={3} className={classes.zones}>

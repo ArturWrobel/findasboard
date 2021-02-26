@@ -58,6 +58,9 @@ const App = () => {
                 </Route>
                 <Route exact path="/MoreMaps" >
                     <div className={classes.content}>
+                        <div>
+                            test
+                        </div>
                         <MoreMaps />
                     </div>
                 </Route>
