@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Typography } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -34,9 +33,6 @@ const App = () => {
                 </Route>
                 <Route exact path="/Charts">
                     <div className={classes.content}>
-                        <Typography>
-                            Chart
-                        </Typography>
                         <Charts />
                     </div>
                 </Route>
@@ -47,7 +43,6 @@ const App = () => {
                 </Route>
                 <Route exact path="/Dashboard" >
                     <div className={classes.content}>
-                        <Typography>Dashboard</Typography>
                         <Dashboard />
                     </div>
                 </Route>
@@ -58,9 +53,6 @@ const App = () => {
                 </Route>
                 <Route exact path="/MoreMaps" >
                     <div className={classes.content}>
-                        <div>
-                            test
-                        </div>
                         <MoreMaps />
                     </div>
                 </Route>

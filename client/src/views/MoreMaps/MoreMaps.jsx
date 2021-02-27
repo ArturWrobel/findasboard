@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography, Paper } from "@material-ui/core/"
 
@@ -23,19 +23,15 @@ const MoreMaps = () => {
                 <Typography variant="h5" className={classes.test}>
                     Orange office locations
                 </Typography>
-                <Grid className={classes.button}>
-                    {/* <CitySelect onChildClick={handleChildClick} /> */}
-                </Grid>
             </Paper>
             <Paper elevation={3}>
                 <Grid container className={classes.map}>
-                    {/* <Map city={choice} /> */}
                     <Map />
                 </Grid>
             </Paper>
             <Paper elevation={3} className={classes.zones}>
                 <Typography variant="h5" className={classes.test}>
-                    Another (Navigation) style
+                    Another style (Navigation)
                 </Typography>
             </Paper>
             <Paper elevation={3}>

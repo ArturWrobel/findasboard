@@ -19,7 +19,7 @@ const mapsStyle = {
     },
     map: {
         position: 'relative',
-        height: '500px',
+        height: '550px',
     },
     zones:{
         marginTop: '10px',
