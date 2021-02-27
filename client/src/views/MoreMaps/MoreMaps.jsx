@@ -4,6 +4,7 @@ import { Grid, Typography, Paper } from "@material-ui/core/"
 
 import styles from './styles.js'
 import Map from './Map'
+import Navi from './Navi'
 
 const useStyles = makeStyles(styles)
 
@@ -11,40 +12,35 @@ const MoreMaps = () => {
 
     const classes = useStyles();
 
-    /* const [choice, setChoice] = useState()
-    function handleChildClick(city) {
-        setChoice(city);} */
-
     return (
         <>
             <Paper elevation={3} className={classes.title}>
-                <Typography variant="h2" >
-                    Maps
+                <Typography variant="h3" >
+                    More custom maps
                 </Typography>
             </Paper>
             <Paper elevation={3} className={classes.choice}>
                 <Typography variant="h5" className={classes.test}>
-                    Click below to choose
+                    Orange office locations
                 </Typography>
                 <Grid className={classes.button}>
                     {/* <CitySelect onChildClick={handleChildClick} /> */}
-                    
                 </Grid>
             </Paper>
             <Paper elevation={3}>
                 <Grid container className={classes.map}>
                     {/* <Map city={choice} /> */}
-                    <Map/>
+                    <Map />
                 </Grid>
             </Paper>
             <Paper elevation={3} className={classes.zones}>
                 <Typography variant="h5" className={classes.test}>
-                    Visualize zones
+                    Another (Navigation) style
                 </Typography>
             </Paper>
             <Paper elevation={3}>
                 <Grid container className={classes.map1}>
-                    {/* <Zones /> */}
+                    <Navi />
                 </Grid>
             </Paper>
         </>

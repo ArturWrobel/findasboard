@@ -7,7 +7,7 @@ const mapsStyle = {
     },
     choice: {
         marginBottom: '10px',
-        height: '90px',
+        height: '40px',
         backgroundColor: '#eeeeee',
     },
     test: {
