@@ -1,9 +1,10 @@
 const chartsStyle = {
-    test : {
-        marginTop: 75,
-        backgroundColor: 'lime',
-        justifyContent: 'space-between',
-    },
+    title:{
+        backgroundColor: '#FF7A01',
+        fontWeight: 'bold',
+        marginBottom: '10px',
+        textAlign: 'center'
+    }
     }
 
 export default chartsStyle;
