@@ -26,13 +26,12 @@ import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 
-import Zones from '../../views/Maps/Zones'
+import {Nivo} from '../../components/'
 
 import styles from "./components/dashboardStyle.js";
 import { dailySalesChart, emailsSubscriptionChart, completedTasksChart } from "./components/variables/charts.js";
 
 const useStyles = makeStyles(styles)
-
 
 const Dashboard = () => {
 
@@ -59,9 +58,9 @@ const Dashboard = () => {
                         </CardHeader>
                         <CardFooter stats>
                             <div className={classes.stats}>
-                            <span className={classes.successText}>
-                            <ArrowUpward />
-                            </span>
+                                <span className={classes.successText}>
+                                    <ArrowUpward />
+                                </span>
                                     Substantial increase
                             </div>
                         </CardFooter>
@@ -95,8 +94,8 @@ const Dashboard = () => {
                         </CardHeader>
                         <CardFooter stats>
                             <div className={classes.stats}>
-                                <span style={{'color': 'danger'}}>
-                                <AccessAlarmIcon />
+                                <span style={{ 'color': 'red' }}>
+                                    <AccessAlarmIcon />
                                 </span>
                 Alarming spike
                 </div>
@@ -121,17 +120,13 @@ const Dashboard = () => {
                     </Card>
                 </GridItem>
             </GridContainer>
+
+            
             <GridContainer>
                 <GridItem xs={12} sm={12} md={4}>
                     <Card chart>
-                        <CardHeader color="success">
-                            <ChartistGraph
-                                className="ct-chart"
-                                data={dailySalesChart.data}
-                                type="Line"
-                                options={dailySalesChart.options}
-                                listener={dailySalesChart.animation}
-                            />
+                        <CardHeader color="warning">
+                            <Nivo/>
                         </CardHeader>
                         <CardBody>
                             <h4 className={classes.cardTitle}>Daily Sales</h4>
