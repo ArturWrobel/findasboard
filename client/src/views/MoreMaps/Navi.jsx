@@ -18,7 +18,8 @@ export default function Navi() {
         <>
             <ReactMapGL
             {...viewport}
-            mapStyle = "mapbox://styles/artmanfx/cklmdvd443bam17qowq4s0tts"
+            mapStyle="mapbox://styles/artmanfx/cklqm6z7q7din17ms453ji94u"
+
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             onViewportChange={viewport => {
                 setViewport(viewport);

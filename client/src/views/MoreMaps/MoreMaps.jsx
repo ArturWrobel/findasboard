@@ -29,7 +29,7 @@ const MoreMaps = () => {
             </Paper>
             <Paper elevation={3}>
                 <Grid container className={classes.map} >
-                    <ArcLayer data = {dataArcLayers} />
+                    <ArcLayer data={dataArcLayers} />
                 </Grid>
             </Paper>
             <Paper elevation={3}>
@@ -39,7 +39,7 @@ const MoreMaps = () => {
             </Paper>
             <Paper elevation={3} className={classes.zones}>
                 <Typography variant="h5" className={classes.test}>
-                    Another style (Navigation)
+                    Another style
                 </Typography>
             </Paper>
             <Paper elevation={3}>

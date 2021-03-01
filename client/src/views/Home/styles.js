@@ -27,7 +27,9 @@ const homeStyle = {
     },
     orange: {
         color: '#FF7A01',
-
+    },
+    center: {
+        textAlign: 'center',
     }
 }
 

@@ -6,7 +6,6 @@ import styles from './styles.js'
 import CitySelect from './City'
 import Map from './Map'
 import Zones from './Zones'
-import ArcLayer from './ArcLayers'
 
 const useStyles = makeStyles(styles)
 
@@ -16,39 +15,9 @@ const Maps = () => {
     function handleChildClick(city) {
         setChoice(city);
     }
-    const data = [{
-        inbound: 72633,
-        outbound: 74735,
-        from: {
-            name: '19th St. Oakland (19TH)',
-            coordinates: [-100.269029, 50.80787]
-        },
-        to: {
-            name: '12th St. Oakland City Center (12TH)',
-            coordinates: [-122.271604, 37.803664]
-        }},
-        {
-            inbound: 72633,
-            outbound: 74735,
-            from: {
-                name: '19th St. Oakland (19TH)',
-                coordinates: [-88.269029, 11.80787]
-            },
-            to: {
-                name: '12th St. Oakland City Center (12TH)',
-                coordinates: [-122.271604, 37.803664]
-            }}
-    ]
+
     return (
         <>
-        <Paper elevation={3}>
-                <Grid container className={classes.map}>
-                    <ArcLayer data = {data}/>
-                </Grid>
-            </Paper>
-
-
-
             <Paper elevation={3} className={classes.title}>
                 <Typography variant="h2" >
                     Maps

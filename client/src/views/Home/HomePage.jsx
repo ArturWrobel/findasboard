@@ -158,17 +158,20 @@ const Home = () => {
                     onClose={handlePopoverClose}
                     disableRestoreFocus
                 >
-                    <Typography variant="h6">
-                        REACT is most convenient for
+                    <Typography variant="h6" className={classes.center}>
+                        REACT is great for user
                     </Typography>
-                    <Typography variant="h6">
-                        {' '}user interface (UI) development.
+                    <Typography variant="h6" className={classes.center}>
+                        interface (UI) development.
                     </Typography>
-                    <Typography variant="h6">
-                        "It helps us create the most engaging web apps
+                    <Typography>
+                        {'.'}
                     </Typography>
-                    <Typography variant="h6">
-                        efficiently and fast with minimal coding."
+                    <Typography variant="h6" className={classes.center}>
+                        "the most engaging web apps
+                    </Typography>
+                    <Typography variant="h6" className={classes.center}>
+                        with minimal coding"
                     </Typography>
                 </Popover>
             </div>
