@@ -5,6 +5,9 @@ import { Grid, Typography, Paper } from "@material-ui/core/"
 import styles from './styles.js'
 import Map from './Map'
 import Navi from './Navi'
+import ArcLayer from './ArcLayers'
+
+import dataArcLayers from './dataArcLayars.js'
 
 const useStyles = makeStyles(styles)
 
@@ -19,13 +22,18 @@ const MoreMaps = () => {
                     More custom maps
                 </Typography>
             </Paper>
-            <Paper elevation={3} className={classes.choice}>
+            <Paper elevation={3} className={classes.choice} >
                 <Typography variant="h5" className={classes.test}>
                     Orange office locations
                 </Typography>
             </Paper>
             <Paper elevation={3}>
-                <Grid container className={classes.map}>
+                <Grid container className={classes.map} >
+                    <ArcLayer data = {dataArcLayers} />
+                </Grid>
+            </Paper>
+            <Paper elevation={3}>
+                <Grid container className={classes.map} style={{ 'margin-top': '10px' }}>
                     <Map />
                 </Grid>
             </Paper>
