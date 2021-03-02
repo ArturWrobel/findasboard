@@ -10,6 +10,9 @@ import CardHeader from "./components/CardHeader.js"
 import CardFooter from "./components/CardFooter.js"
 import CardIcon from "./components/CardIcon.js"
 import CardBody from "./components/CardBody.js"
+import CustomTabs from "./components/CustomTabs.js"
+import Tasks from "./components/Tasks.js";
+import Table from "./components/Table.js";
 
 import Store from "@material-ui/icons/Store";
 import Warning from "@material-ui/icons/Warning";
@@ -26,10 +29,9 @@ import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 
-import {Nivo} from '../../components/'
-
+import {SalesChart, BarChart, BreakDown} from '../../components/'
+import { bugs, website, server } from "./components/variables/general.js"
 import styles from "./components/dashboardStyle.js";
-import { dailySalesChart, emailsSubscriptionChart, completedTasksChart } from "./components/variables/charts.js";
 
 const useStyles = makeStyles(styles)
 
@@ -119,22 +121,20 @@ const Dashboard = () => {
                         </CardFooter>
                     </Card>
                 </GridItem>
-            </GridContainer>
-
-            
+            </GridContainer>            
             <GridContainer>
                 <GridItem xs={12} sm={12} md={4}>
                     <Card chart>
                         <CardHeader color="warning">
-                            <Nivo/>
+                            <SalesChart/>
                         </CardHeader>
                         <CardBody>
-                            <h4 className={classes.cardTitle}>Daily Sales</h4>
+                            <h4 className={classes.cardTitle}>Monthly Sales</h4>
                             <p className={classes.cardCategory}>
                                 <span className={classes.successText}>
-                                    <ArrowUpward className={classes.upArrowCardCategory} /> 55%
+                                    <ArrowUpward className={classes.upArrowCardCategory} /> 23%
                 </span>{" "}
-                increase in today sales.
+                increase since QIV previous year
                 </p>
                         </CardBody>
                         <CardFooter chart>
@@ -147,48 +147,101 @@ const Dashboard = () => {
                 <GridItem xs={12} sm={12} md={4}>
                     <Card chart>
                         <CardHeader color="warning">
-                            <ChartistGraph
-                                className="ct-chart"
-                                data={emailsSubscriptionChart.data}
-                                type="Bar"
-                                options={emailsSubscriptionChart.options}
-                                responsiveOptions={emailsSubscriptionChart.responsiveOptions}
-                                listener={emailsSubscriptionChart.animation}
-                            />
+                            <BarChart/>
                         </CardHeader>
                         <CardBody>
-                            <h4 className={classes.cardTitle}>Email Subscriptions</h4>
-                            <p className={classes.cardCategory}>Last Campaign Performance</p>
+                            <h4 className={classes.cardTitle}>Flows vs costs</h4>
+                            <p className={classes.cardCategory}>is anyone reading</p>
                         </CardBody>
                         <CardFooter chart>
                             <div className={classes.stats}>
-                                {/* <AccessTime />  */}campaign sent 2 days ago
+                                <AccessTime /> updated 2 days ago
                 </div>
                         </CardFooter>
                     </Card>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
                     <Card chart>
-                        <CardHeader color="danger">
-                            <ChartistGraph
-                                className="ct-chart"
-                                data={completedTasksChart.data}
-                                type="Line"
-                                options={completedTasksChart.options}
-                                listener={completedTasksChart.animation}
-                            />
+                        <CardHeader color="warning">
+                            <BreakDown/>
                         </CardHeader>
                         <CardBody>
-                            <h4 className={classes.cardTitle}>Completed Tasks</h4>
-                            <p className={classes.cardCategory}>Last Campaign Performance</p>
+                            <h4 className={classes.cardTitle}>Sales breakdown</h4>
+                            <p className={classes.cardCategory}>by sector</p>
                         </CardBody>
                         <CardFooter chart>
                             <div className={classes.stats}>
-                                {/* <AccessTime /> */} campaign sent 2 days ago
+                                <AccessTime /> sent 2 days ago
                 </div>
                         </CardFooter>
                     </Card>
                 </GridItem>
+            </GridContainer>
+            <GridContainer>
+            <GridItem xs={12} sm={12} md={6}>
+          <CustomTabs
+            title="Tasks:"
+            headerColor="info"
+            tabs={[
+              {
+                tabName: "Bugs",
+                tabIcon: BugReport,
+                tabContent: (
+                  <Tasks
+                    checkedIndexes={[0, 3]}
+                    tasksIndexes={[0, 1, 2, 3]}
+                    tasks={bugs}
+                  />
+                )
+              },
+              {
+                tabName: "Website",
+                tabIcon: Code,
+                tabContent: (
+                  <Tasks
+                    checkedIndexes={[0]}
+                    tasksIndexes={[0, 1]}
+                    tasks={website}
+                  />
+                )
+              },
+              {
+                tabName: "Cloud",
+                tabIcon: Cloud,
+                tabContent: (
+                  <Tasks
+                    checkedIndexes={[1]}
+                    tasksIndexes={[0, 1, 2]}
+                    tasks={server}
+                  />
+                )
+              }
+            ]}
+          />
+        </GridItem>
+        <GridItem xs={12} sm={12} md={6}>
+          <Card>
+            <CardHeader color="warning">
+              <h4 className={classes.cardTitleWhite}>Stats QIV</h4>
+              <p className={classes.cardCategoryWhite}>
+                New team results
+              </p>
+            </CardHeader>
+            <CardBody>
+              <Table
+                tableHeaderColor="warning"
+                tableHead={["ID", "Name", "Reve", "Country"]}
+                tableData={[
+                  ["1", "Regina Bold", "$36,738", "Poland"],
+                  ["2", "Krzysztof Kostomłot", "$23,789", "Zimbawe"],
+                  ["3", "Blady Filip", "$56,142", "Netherlands"],
+                  ["4", "Błekitnooka Karla", "$38,735", "Dominikana"],
+                  ["5", "Roman Bratny", "$44,552", "Reunion"],
+                ]}
+              />
+            </CardBody>
+          </Card>
+        </GridItem>
             </GridContainer>
         </>
     )

@@ -85,6 +85,9 @@ const dashboardStyle = {
       lineHeight: "1"
     }
   },
+  zones: {
+    height: '500px'
+  }
 };
 
 export default dashboardStyle;
