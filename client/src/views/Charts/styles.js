@@ -2,9 +2,12 @@ const chartsStyle = {
     title:{
         backgroundColor: '#FF7A01',
         fontWeight: 'bold',
-        marginBottom: '10px',
         textAlign: 'center'
-    }
+    },
+    chart: {
+        marginTop: '10px',
+        height: '500px',
+    },
     }
 
 export default chartsStyle;

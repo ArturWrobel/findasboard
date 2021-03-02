@@ -1,8 +1,6 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Paper } from "@material-ui/core/"
-import ChartistGraph from "react-chartist";
-import Icon from "@material-ui/core/Icon"
 import GridContainer from './components/GridContainer.js'
 import GridItem from './components/GridItem'
 import Card from "./components/Card.js"
@@ -14,10 +12,7 @@ import CustomTabs from "./components/CustomTabs.js"
 import Tasks from "./components/Tasks.js";
 import Table from "./components/Table.js";
 
-import Store from "@material-ui/icons/Store";
-import Warning from "@material-ui/icons/Warning";
 import DateRange from "@material-ui/icons/DateRange";
-import LocalOffer from "@material-ui/icons/LocalOffer";
 import Update from "@material-ui/icons/Update";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
@@ -29,7 +24,7 @@ import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 
-import {SalesChart, BarChart, BreakDown} from '../../components/'
+import { SalesChart, BarChart, BreakDown } from '../../components/'
 import { bugs, website, server } from "./components/variables/general.js"
 import styles from "./components/dashboardStyle.js";
 
@@ -121,12 +116,12 @@ const Dashboard = () => {
                         </CardFooter>
                     </Card>
                 </GridItem>
-            </GridContainer>            
+            </GridContainer>
             <GridContainer>
                 <GridItem xs={12} sm={12} md={4}>
                     <Card chart>
                         <CardHeader color="warning">
-                            <SalesChart/>
+                            <SalesChart />
                         </CardHeader>
                         <CardBody>
                             <h4 className={classes.cardTitle}>Monthly Sales</h4>
@@ -147,7 +142,7 @@ const Dashboard = () => {
                 <GridItem xs={12} sm={12} md={4}>
                     <Card chart>
                         <CardHeader color="warning">
-                            <BarChart/>
+                            <BarChart />
                         </CardHeader>
                         <CardBody>
                             <h4 className={classes.cardTitle}>Flows vs costs</h4>
@@ -163,7 +158,7 @@ const Dashboard = () => {
                 <GridItem xs={12} sm={12} md={4}>
                     <Card chart>
                         <CardHeader color="warning">
-                            <BreakDown/>
+                            <BreakDown />
                         </CardHeader>
                         <CardBody>
                             <h4 className={classes.cardTitle}>Sales breakdown</h4>
@@ -178,70 +173,70 @@ const Dashboard = () => {
                 </GridItem>
             </GridContainer>
             <GridContainer>
-            <GridItem xs={12} sm={12} md={6}>
-          <CustomTabs
-            title="Tasks:"
-            headerColor="info"
-            tabs={[
-              {
-                tabName: "Bugs",
-                tabIcon: BugReport,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[0, 3]}
-                    tasksIndexes={[0, 1, 2, 3]}
-                    tasks={bugs}
-                  />
-                )
-              },
-              {
-                tabName: "Website",
-                tabIcon: Code,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[0]}
-                    tasksIndexes={[0, 1]}
-                    tasks={website}
-                  />
-                )
-              },
-              {
-                tabName: "Cloud",
-                tabIcon: Cloud,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[1]}
-                    tasksIndexes={[0, 1, 2]}
-                    tasks={server}
-                  />
-                )
-              }
-            ]}
-          />
-        </GridItem>
-        <GridItem xs={12} sm={12} md={6}>
-          <Card>
-            <CardHeader color="warning">
-              <h4 className={classes.cardTitleWhite}>Stats QIV</h4>
-              <p className={classes.cardCategoryWhite}>
-                New team results
-              </p>
-            </CardHeader>
-            <CardBody>
-              <Table
-                tableHeaderColor="warning"
-                tableHead={["ID", "Name", "Reve", "Country"]}
-                tableData={[
-                  ["1", "Regina Bold", "$36,738", "Poland"],
-                  ["2", "Krzysztof Kostomłot", "$23,789", "Zimbawe"],
-                  ["3", "Blady Filip", "$56,142", "Netherlands"],
-                  ["4", "Błekitnooka Karla", "$38,735", "Dominikana"],
-                  ["5", "Roman Bratny", "$44,552", "Reunion"],
-                ]}
-              />
-            </CardBody>
-          </Card>
-        </GridItem>
+                <GridItem xs={12} sm={12} md={6}>
+                    <CustomTabs
+                        title="Tasks:"
+                        headerColor="info"
+                        tabs={[
+                            {
+                                tabName: "Bugs",
+                                tabIcon: BugReport,
+                                tabContent: (
+                                    <Tasks
+                                        checkedIndexes={[0, 3]}
+                                        tasksIndexes={[0, 1, 2, 3]}
+                                        tasks={bugs}
+                                    />
+                                )
+                            },
+                            {
+                                tabName: "Website",
+                                tabIcon: Code,
+                                tabContent: (
+                                    <Tasks
+                                        checkedIndexes={[0]}
+                                        tasksIndexes={[0, 1]}
+                                        tasks={website}
+                                    />
+                                )
+                            },
+                            {
+                                tabName: "Cloud",
+                                tabIcon: Cloud,
+                                tabContent: (
+                                    <Tasks
+                                        checkedIndexes={[1]}
+                                        tasksIndexes={[0, 1, 2]}
+                                        tasks={server}
+                                    />
+                                )
+                            }
+                        ]}
+                    />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={6}>
+                    <Card>
+                        <CardHeader color="warning">
+                            <h4 className={classes.cardTitleWhite}>Stats QIV</h4>
+                            <p className={classes.cardCategoryWhite}>
+                                New team results
+                            </p>
+                        </CardHeader>
+                        <CardBody>
+                            <Table
+                                tableHeaderColor="warning"
+                                tableHead={["ID", "Name", "Reve", "Country"]}
+                                tableData={[
+                                    ["1", "Regina Bold", "$36,738", "Poland"],
+                                    ["2", "Krzysztof Kostomłot", "$23,789", "Zimbawe"],
+                                    ["3", "Blady Filip", "$56,142", "Netherlands"],
+                                    ["4", "Błekitnooka Karla", "$38,735", "Dominikana"],
+                                    ["5", "Roman Bratny", "$44,552", "Reunion"],
+                                ]}
+                            />
+                        </CardBody>
+                    </Card>
+                </GridItem>
             </GridContainer>
         </>
     )
