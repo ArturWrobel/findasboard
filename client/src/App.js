@@ -31,7 +31,7 @@ const App = () => {
                         <HomePage />
                     </div>
                 </Route>
-                <Route exact path="/Charts">
+                <Route exact path="/Visualizations">
                     <div className={classes.content}>
                         <Charts />
                     </div>

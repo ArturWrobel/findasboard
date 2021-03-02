@@ -3,8 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Typography, Grid } from "@material-ui/core/"
 
 import styles from './styles.js'
-import Bump from './charts/Bump'
-import BumpyLine from './charts/BumpyLine'
+import Bump from './charts/Bump/Bump'
+import BumpyLine from './charts/Bump/BumpyLine'
+import Calendar from './charts/Calendar/Calendar'
+import HeatMap from './charts/Calendar/HeatMap'
 
 const useStyles = makeStyles(styles)
 
@@ -14,38 +16,56 @@ const Charts = () => {
 
   return (
     <>
-      <Paper elevation={3} className={classes.title}>
+      <Paper elevation={3} className={classes.title} >
         <Typography variant="h2">
-          Charts examples
+          Data visualizations
             </Typography>
       </Paper>
-      <Paper elevation={3}>
-        <Grid container className={classes.chart}>
-          <Paper elevation={3}>
-            
-          </Paper>
-          <Grid style={{ 'width': '50%', 'height' : '100%'}}>
-            <Bump />
-          </Grid>
-          <Grid style={{ 'width': '50%', 'height' : '100%'}}>
-            <BumpyLine />
-          </Grid>
-        </Grid>
+      <Paper elevation={3} className={classes.subTitle} >
+        <Typography variant="h4">
+          Rankings
+            </Typography>
       </Paper>
-      <Paper elevation={3}>
-        <Grid container className={classes.chart}>
-          <Typography variant="h1" container>
-            xxx
-                    </Typography>
-        </Grid>
+      <Grid container className={classes.chart} >
+        <Paper elevation={3} className={classes.subChart}
+          xs={12} sm={6} md={3}>
+          <Bump />
+        </Paper>
+        <Paper elevation={3} className={classes.subChart}
+          xs={12} sm={6} md={3}>
+          <BumpyLine />
+        </Paper>
+      </Grid>
+      <Paper elevation={3} className={classes.subTitle} >
+        <Typography variant="h4">
+          Relationships
+            </Typography>
       </Paper>
-      <Paper elevation={3}>
-        <Grid container className={classes.chart}>
-          <Typography variant="h1" container>
-            xxx
-                    </Typography>
-        </Grid>
+      <Grid container className={classes.chart} >
+        <Paper elevation={3} className={classes.subChart}
+          xs={12} sm={6} md={3}>
+          <Calendar />
+        </Paper>
+        <Paper elevation={3} className={classes.subChart}
+          xs={12} sm={6} md={3}>
+          <HeatMap />
+        </Paper>
+      </Grid>
+      <Paper elevation={3} className={classes.subTitle} >
+        <Typography variant="h4">
+          Calendars&HeatMaps
+            </Typography>
       </Paper>
+      <Grid container className={classes.chart} >
+        <Paper elevation={3} className={classes.subChart}
+          xs={12} sm={6} md={3}>
+          <Calendar />
+        </Paper>
+        <Paper elevation={3} className={classes.subChart}
+          xs={12} sm={6} md={3}>
+          <HeatMap />
+        </Paper>
+      </Grid>
     </>
   )
 }

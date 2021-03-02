@@ -47,7 +47,7 @@ export default function ClippedDrawer() {
                 <Toolbar />
                 <div className={classes.drawerContainer}>
                     <List>
-                        {['Home', 'Dashboard', 'Calculator', 'Tables', 'Maps', 'MoreMaps', 'Charts'].map((text, index) => (
+                        {['Home', 'Dashboard', 'Calculator', 'Tables', 'Maps', 'Visualizations', 'MoreMaps'].map((text, index) => (
                             <ListItem
                                 button key={text}
                                 component={Link} to={`/${text}`}
@@ -56,7 +56,7 @@ export default function ClippedDrawer() {
                                 <ListItemIcon>
                                     {text === 'Home' && <HomeIcon />}
                                     {text === 'Tables' && <TableChartIcon />}
-                                    {text === 'Charts' && <AssessmentIcon />}
+                                    {text === 'Visualizations' && <AssessmentIcon />}
                                     {text === 'Maps' && <MapIcon />}
                                     {text === 'MoreMaps' && <MapIcon />}
                                     {text === 'Dashboard' && <DashboardIcon />}
