@@ -62,7 +62,6 @@ export default function Example(props) {
 
     const handleSliderChange = (event, newValue) => {
         setValue(newValue);
-        console.log(value);
       };
 
     return (

@@ -7,10 +7,10 @@ export const getChartData = () => async (dispatch) => {
         const { data } = await api.fetchData();
 
         dispatch({ type: FETCH_ALL, chartInput: data });
-        console.log("aaa")
+       /*  console.log("aaa")
         console.log(data)
-        console.log("aaa")
+        console.log("aaa") */
     } catch (error) {
-        console.log(error.message);
+        /* console.log(error.message); */
     }
 };

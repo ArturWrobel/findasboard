@@ -13,39 +13,44 @@ const About = () => {
     return (
         <>
             <Grid container className={classes.test}>
-                <Typography variant="h3">
+                <Typography variant="h2">
                     Project mission
                 </Typography>
             </Grid>
 
             <Grid container className={classes.subtitle}>
                 <Grid>
-                    <Typography variant="h6">
-                        My name is:
-                    <a className={classes.name} href={`mailto:${email}`}> Artur Wróbel </a>
-                    </Typography>
-                    <Typography variant="h6">
-                        I work for Orange in Poland (Finance Team)
+                    <Typography variant="h4">
+                        Help to <span className={classes.orange}>understand</span>  and lead to <span className={classes.orange}>change</span>
                     </Typography>
                     <Typography variant="h6" className={classes.subtitle}>
-                        You can reach me here:
-                        <a className={classes.name} href={`mailto:${email}`}> artur.wrobel@orange.com </a>
+                        Digitalization can be <strong>dynamic</strong>  and look nice.
+                    </Typography>
+                    <Typography variant="h6">
+                        We can show you how to do it.
+                    </Typography>
+                    <Grid className={classes.grid}>
+                        <Typography variant="h6" className={classes.text}>
+                            In this demo, we show what can be done to make our life easier.
+                            New tools (like REACT or REACT Native for mobile apps) could help solve problems,
+                            digitalize our processes or just make things more engaging, look prettier.
+                            Some of us wonder where to start. Here you go! We presented here some dashboards, visualizations,
+                            or functions which can apply to your area. There is lots more to show. Let's discuss it and start refreshing our processes,
+                            presentations, or just make our life easier with repetitive things.
+                    </Typography>
+                    </Grid>
+                    <Grid className={classes.grid1}>
+                        <Typography>
+                            REACT is "a JavaScript library for building user interfaces".
                     </Typography>
                     <Typography>
-                        or fill form below
+                            It was created and implemented initially on Facebook.
                     </Typography>
+                    </Grid>
                 </Grid>
             </Grid>
             <Grid >
 
-            </Grid>
-            
-            <Grid className={classes.bottomText}>
-                <Typography>
-                    Created and supported by
-                    <a className={classes.name} href={`mailto:${email}`}> Artur Wróbel</a>
-                    <sup>©</sup> . All mistakes are mine.
-                </Typography>
             </Grid>
         </>
     )

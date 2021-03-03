@@ -3,8 +3,6 @@ import ReactMapGL, { Marker } from 'react-map-gl';
 import Icon from './Icon'
 import places from './data'
 
-console.log(places)
-//const data = places[0]
 export default function Map() {
     const [viewport, setViewport] = useState({
         latitude: 20.20876739031568,

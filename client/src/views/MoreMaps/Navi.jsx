@@ -4,8 +4,6 @@ import Icon from './Icon'
 import places from './data'
 import geo from './map.geojson'
 
-console.log(places)
-//const data = places[0]
 export default function Navi() {
     const [viewport, setViewport] = useState({
         latitude: 44.436115495348205,

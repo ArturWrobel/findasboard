@@ -87,10 +87,6 @@ export default function StickyHeadTable(props) {
         residual = Math.abs(amount - intCumulative)
 
         rows.push(createData(i, date.toISOString().slice(0, 10), residual, instalment, capital, int))
-        console.log("instalment " + instalment)
-        console.log("interest " + interest)
-        console.log("int " + int)
-
     }
     return (
         <Paper className={classes.root}>

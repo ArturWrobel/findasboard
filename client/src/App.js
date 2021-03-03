@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { Sidebar } from './components';
 import { Contact, Dashboard, Calculator, Charts, HomePage, Maps, MoreMaps, Tables, About } from './views'
@@ -17,10 +17,6 @@ const App = () => {
         dispatch(getChartData());
     }, [dispatch]);
 
-    const xxx = useSelector(state => state.charts)
-
-    console.log('...........')
-    console.log(xxx)
 
     return (
         <Router>

@@ -120,7 +120,7 @@ const Dashboard = () => {
             <GridContainer>
                 <GridItem xs={12} sm={12} md={4}>
                     <Card chart>
-                        <CardHeader color="warning">
+                        <CardHeader color="rose">
                             <SalesChart />
                         </CardHeader>
                         <CardBody>
@@ -141,7 +141,7 @@ const Dashboard = () => {
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
                     <Card chart>
-                        <CardHeader color="grey">
+                        <CardHeader color="rose">
                             <BarChart />
                         </CardHeader>
                         <CardBody>
@@ -157,7 +157,7 @@ const Dashboard = () => {
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
                     <Card chart>
-                        <CardHeader color="warning">
+                        <CardHeader color="rose">
                             <BreakDown />
                         </CardHeader>
                         <CardBody>

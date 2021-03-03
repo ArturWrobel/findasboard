@@ -1,6 +1,7 @@
 const contactStyle = {
     test: {
         justifyContent: 'center',
+        marginTop: '10vh',
     },
     mePicture: {
         minWidth: 150,
@@ -10,23 +11,30 @@ const contactStyle = {
         marginRight: '10%'
     },
     subtitle: {
-        marginTop: 20,
+        marginTop: '5vh',
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center'
     },
-    name: {
-        color: "brown",
-        fontWeight: "bold",
-        textDecoration: "none"
+    orange: {
+        color: '#FF7A01',
     },
-    bottomText: {
-        position: "absolute",
-        bottom: "5px",
-        right: "5px",
+    text: {
+        marginTop: '7vh'
     },
-    form: {
-        marginTop: "5%",
+    grid: {
+        justifyContent: 'center',
+        width: '50%',
+        marginLeft: '25%',
+        textAlign: 'justify'
+    },
+    grid1: {
+        position: 'relative',
+        marginTop: '5vh',
+
+        justifyContent: 'center',
+        width: '40%',
+        marginLeft: '30%'
     }
 }
 
