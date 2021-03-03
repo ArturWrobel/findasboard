@@ -30,6 +30,11 @@ const homeStyle = {
     },
     center: {
         textAlign: 'center',
+    },
+    bottom: {
+        position: 'relative',
+        bottom: '-30%',
+        justifyContent: 'center'
     }
 }
 

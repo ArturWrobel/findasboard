@@ -44,13 +44,6 @@ const Home = () => {
         setAnchorEl(null);
     };
 
-    const handlePopoverOpenLower = (event) => {
-        setOn(event.currentTarget);
-    };
-
-    const handlePopoverCloseLower = () => {
-        setOn(null);
-    };
 
     const handlePopoverOpenMobile = (event) => {
         setOnMobile(event.currentTarget);
@@ -61,7 +54,6 @@ const Home = () => {
     };
 
     const open = Boolean(anchorEl);
-    const openLower = Boolean(on)
     const openMobile = Boolean(onMobile)
 
     return (
@@ -102,9 +94,6 @@ const Home = () => {
                             <img alt="Artur Wróbel" src={reactLogo} className={classes.logo} />
                         </Hidden>
                         <Grid>
-                            {/* <Typography variant="h5">
-                                Let's try something new:
-                        </Typography> */}
                             <Typography variant="h2">
                                 REACT
                         </Typography>
@@ -118,24 +107,18 @@ const Home = () => {
                     </Grid>
                 </Grid>
 
-                <Grid /* className={classes.bottom} */
-                    style={footer}
-                    aria-owns={openLower ? 'xxx' : undefined}
-                    aria-haspopup="true"
-                    onMouseEnter={handlePopoverOpenLower}
-                    onMouseLeave={handlePopoverCloseLower}
-                >
-                    {/* <Grid>
-                        <Typography variant="h6" className={classes.orange}>
-                            MISSION:
+                <Grid className={classes.bottom}>
+                    <Grid className={classes.center}>
+                        <Typography variant="h6">
+                            Have a look
                         </Typography>
                         <Typography variant="h6">
-                            My aim is to show what can be done
+                            what <span className={classes.orange}>we can </span>do
                         </Typography>
                         <Typography variant="h6">
-                            and encourage to build new tools with React.{' '}
+                            together
                         </Typography>
-                    </Grid> */}
+                    </Grid>
                 </Grid>
             </Paper>
             <div>
@@ -175,34 +158,7 @@ const Home = () => {
                     </Typography>
                 </Popover>
             </div>
-            <div>
-                <Popover
-                    id="xxx"
-                    className={classes.popover}
-                    classes={{
-                        paper: classes.paper,
-                    }}
-                    open={openLower}
-                    anchorEl={on}
-                    anchorOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                    }}
-                    onClose={handlePopoverCloseLower}
-                    disableRestoreFocus
-                >
-                    <Typography variant="h6">
-                        It will make jobs easier and faster.
-                    </Typography>
-                    <Typography variant="h6">
-                        We can develope mobile App.
-                    </Typography>
-                </Popover>
-            </div>
+            
             <div>
                 <Popover
                     id="mobile"

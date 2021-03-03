@@ -10,6 +10,7 @@ import TableChartIcon from '@material-ui/icons/TableChart';
 import MapIcon from '@material-ui/icons/Map';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import DialpadIcon from '@material-ui/icons/Dialpad';
+import InfoIcon from '@material-ui/icons/Info';
 
 import { Link } from 'react-router-dom';
 
@@ -66,8 +67,12 @@ export default function ClippedDrawer() {
                             </ListItem>
                         ))}
                     </List>
-                    <Divider />
+                    <Divider style={{"margin-top": '50px'}}/>
                     <List>
+                    <ListItem button component={Link} to={'/About'}>
+                            <ListItemIcon><InfoIcon /></ListItemIcon>
+                            <ListItemText primary={'About'} />
+                        </ListItem>
                         <ListItem button component={Link} to={'/Contact'}>
                             <ListItemIcon><MailIcon /></ListItemIcon>
                             <ListItemText primary={'Contact me'} />
