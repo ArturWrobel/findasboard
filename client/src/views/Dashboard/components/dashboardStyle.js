@@ -8,12 +8,13 @@ import {
 
 
 const dashboardStyle = {
-  title:{
+  title: {
     backgroundColor: '#FF7A01',
     fontWeight: 'bold',
     marginBottom: '10px',
-    textAlign: 'center'
-},
+    textAlign: 'center',
+    color: 'white'
+  },
   successText: {
     color: successColor[0]
   },
@@ -87,6 +88,25 @@ const dashboardStyle = {
   },
   zones: {
     height: '500px'
+  },
+  pdf: {
+    position: 'fixed',
+    top: '9vh',
+    left: '220px',
+    zIndex: '50'
+  },
+  info: {
+    position: 'fixed',
+    top: '9vh',
+    right: '20px',
+    zIndex: '50'
+  },
+  customWidth: {
+    backgroundColor: '#f5f5f9',
+    color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: 10,
+    border: '1px solid #dadde9'
   }
 };
 

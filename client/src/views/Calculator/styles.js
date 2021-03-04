@@ -54,7 +54,7 @@ const calculatorStyle = {
         borderRadius: "5px",
         border: "2px solid #FF7A01",
         margin: "0 10px 0",
-    }
+    },
 }
 
 export default calculatorStyle;

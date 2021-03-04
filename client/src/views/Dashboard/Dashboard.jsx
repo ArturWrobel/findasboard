@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Paper } from "@material-ui/core/"
+import { Typography, Paper, Button, Grid, Icon } from "@material-ui/core/"
 import GridContainer from './components/GridContainer.js'
 import GridItem from './components/GridItem'
 import Card from "./components/Card.js"
@@ -11,6 +11,8 @@ import CardBody from "./components/CardBody.js"
 import CustomTabs from "./components/CustomTabs.js"
 import Tasks from "./components/Tasks.js";
 import Table from "./components/Table.js";
+import PrintButton from "./components/pdf/PrintButton"
+import Tooltip from '@material-ui/core/Tooltip'
 
 import DateRange from "@material-ui/icons/DateRange";
 import Update from "@material-ui/icons/Update";
@@ -23,6 +25,7 @@ import Cloud from "@material-ui/icons/Cloud";
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 
 import { SalesChart, BarChart, BreakDown } from '../../components/'
 import { bugs, website, server } from "./components/variables/general.js"
@@ -36,10 +39,36 @@ const Dashboard = () => {
 
     return (
         <>
+            <div className={classes.pdf}>
+                <PrintButton />
+            </div>
+            <div className={classes.info}>
+                <Tooltip
+                    classes={{ tooltip: classes.customWidth }}
+                    placement="bottom-start"
+                    title="wiecej textufdvsdvsdddddddd
+                    ddddddddddddddddddddddddddddddddddddddddddddd
+                    ddddddddddddddddddddddddddddddddddddddddddd
+                    ddddddddddddddddddddddddddddddddddddddddddddd">
+                    <Button>
+                        <CardIcon>
+                            <ContactSupportIcon
+                                color="primary"
+                                style={{ fontSize: 40 }}
+                            />
+                        </CardIcon>
+                    </Button>
+                </Tooltip>
+            </div>
+
             <Paper elevation={3} className={classes.title}>
-                <Typography variant="h2">
-                    Finance dashboard
-            </Typography>
+                <Grid container>
+                    <Typography variant="h2">
+                        Finance dashboard
+                    </Typography>
+                </Grid>
+
+
             </Paper>
             <GridContainer>
                 <GridItem xs={12} sm={6} md={3}>
@@ -117,10 +146,12 @@ const Dashboard = () => {
                     </Card>
                 </GridItem>
             </GridContainer>
+
+
             <GridContainer>
-                <GridItem xs={12} sm={12} md={4}>
-                    <Card chart>
-                        <CardHeader color="rose">
+                <GridItem xs={12} sm={12} md={4} >
+                    <Card chart >
+                        <CardHeader color="rose" id="divIdToPrint">
                             <SalesChart />
                         </CardHeader>
                         <CardBody>

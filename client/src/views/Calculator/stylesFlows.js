@@ -8,6 +8,12 @@ const flowsStyle = {
     titleRow: {
         fontWeight: 'bold',
         fontSize: '2vh'
+    },
+    excelButton: {
+        position: 'fixed',
+        top: '9vh',
+        left: '220px',
+        zIndex: '50'
     }
 }
 
