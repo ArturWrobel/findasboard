@@ -67,7 +67,7 @@ export default function ClippedDrawer() {
                             </ListItem>
                         ))}
                     </List>
-                    <Divider style={{"margin-top": '50px'}}/>
+                    <Divider className={classes.divider}/>
                     <List>
                     <ListItem button component={Link} to={'/About'}>
                             <ListItemIcon><InfoIcon /></ListItemIcon>

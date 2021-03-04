@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { TextField, Typography, Grid, Paper} from "@material-ui/core/"
+import { TextField, Typography, Grid, Paper } from "@material-ui/core/"
 import { makeStyles } from "@material-ui/core/styles";
 import Flows from './Flows'
 
@@ -20,7 +20,7 @@ export default function Input(props) {
     }
     const [values, setValues] = useState(initialState)
     const [total, set_total] = useState(0);
-    const [outcome, setOutcome] = useState([0,0,0,0]);
+    const [outcome, setOutcome] = useState([0, 0, 0, 0]);
     const [choice, newChoice] = useState(props.name)
 
     const values_handler = (e) => {
@@ -34,19 +34,19 @@ export default function Input(props) {
     const createTable = (table) => {
         return (
             <Flows
-                        amount={outcome[0]}
-                        payment={outcome[1]}
-                        interest={outcome[2]}
-                        months={outcome[3]}
-                    />
+                amount={outcome[0]}
+                payment={outcome[1]}
+                interest={outcome[2]}
+                months={outcome[3]}
+            />
         )
     }
 
-    useEffect(() => { 
+    useEffect(() => {
         // handle change of radio choice
         if (props.name !== choice) {
             setValues(initialState)
-            setOutcome([0,0,0,0])
+            setOutcome([0, 0, 0, 0])
             newChoice(props.name)
             const aaa = document.getElementById("amount")
             aaa.value = ''
@@ -57,9 +57,10 @@ export default function Input(props) {
             const ddd = document.getElementById("months")
             ddd.value = ''
         }
-        calcTotal(values) }, [values, props.name, set_total])
+        calcTotal(values)
+    }, [values, props.name, set_total])
 
-    const calcTotal = (values) => { 
+    const calcTotal = (values) => {
         let aux = 0
         let outcome = []
         /* for (var key in values) {
@@ -76,15 +77,15 @@ export default function Input(props) {
                     aux = 0
                 } else {
                     aux = payment * [(1 - [1 / Math.pow((1 + (interest / 12)), months)]) / (interest / 12)]
-                    setOutcome([aux , payment, interest, months])
-                }    
+                    setOutcome([aux, payment, interest, months])
+                }
                 break
             case 'interest':
                 if (payment === 0 || amount === 0 || months === 0) {
                     aux = 0
                 } else {
                     aux = [rate(months, (-1 * payment), amount, 0, 'end') * 100 * 12]
-                    setOutcome([amount , payment, aux/100, months])
+                    setOutcome([amount, payment, aux / 100, months])
                 }
                 break
             case 'payment':
@@ -114,8 +115,7 @@ export default function Input(props) {
     } else if (props.name === 'interest') {
         int = true
         result = "Interest Rate"
-        after = "%"
-    }
+        after = "%" }
 
     return (
         <>
@@ -163,19 +163,18 @@ export default function Input(props) {
             <Grid className={classes.result}>
                 <Typography variant="h6">
                     {result}:
-                    <span className={classes.score}> {total.toLocaleString('en-US', 
-                    { maximumFractionDigits: 2 })} </span>
+                    <span className={classes.score}> {total.toLocaleString('en-US',
+                        { maximumFractionDigits: 2 })} </span>
                     {after}
                 </Typography>
-                
-            </Grid>           
-            {(outcome[0] === 0 || outcome[1] === 0 || outcome[2] === 0 || outcome[3] === 0) ? <Typography variant="5"></Typography> : 
-                <Grid className={classes.flows}>
-                <Paper elevation={3}>
-                    {createTable(values)}
-                </Paper>
             </Grid>
-            } 
-            </>
+            {(outcome[0] === 0 || outcome[1] === 0 || outcome[2] === 0 || outcome[3] === 0) ? <Typography></Typography> :
+                <Grid className={classes.flows}>
+                    <Paper elevation={3}>
+                        {createTable(values)}
+                    </Paper>
+                </Grid>
+            }
+        </>
     )
 }

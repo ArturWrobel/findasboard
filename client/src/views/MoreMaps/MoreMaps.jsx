@@ -33,7 +33,7 @@ const MoreMaps = () => {
                 </Grid>
             </Paper>
             <Paper elevation={3}>
-                <Grid container className={classes.map} style={{ 'margin-top': '10px' }}>
+                <Grid container className={classes.map1} >
                     <Map />
                 </Grid>
             </Paper>

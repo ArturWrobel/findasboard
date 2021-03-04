@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Divider, Paper, Hidden, Popover, useTheme, useMediaQuery } from "@material-ui/core/"
+import { Grid, Typography, Divider, Paper, Hidden, Popover} from "@material-ui/core/"
 
 import styles from './styles.js'
 import reactLogo from '../../assets/reactLogo.png'
@@ -9,32 +9,8 @@ const useStyles = makeStyles(styles)
 
 const Home = () => {
     const [anchorEl, setAnchorEl] = useState(null)
-    const [on, setOn] = useState(null)
     const [onMobile, setOnMobile] = useState(null)
     const classes = useStyles();
-
-    const theme = useTheme();
-    const smallPage = useMediaQuery(theme.breakpoints.up('md'))
-    const smallerPage = useMediaQuery(theme.breakpoints.up('sm'))
-    let footer = {
-        position: 'fixed',
-        bottom: '1%',
-        right: '5%',
-    }
-    if (smallPage) {
-        footer = {
-            position: 'fixed',
-            right: '2%',
-            bottom: '2%'
-        }
-    }
-    let top = {
-        display: 'none'
-    }
-    if (smallerPage) {
-        top = {
-        }
-    }
 
     const handlePopoverOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -62,7 +38,6 @@ const Home = () => {
             <Paper className={classes.page} elevation={3}>
 
                 <Grid className={classes.top}
-                    style={top}
                     aria-owns={open ? 'mobile' : undefined}
                     aria-haspopup="true"
                     onMouseEnter={handlePopoverOpenMobile}
@@ -72,7 +47,7 @@ const Home = () => {
                             Looking for <span className={classes.orange}>solid</span>  tools and <span className={classes.orange}>automate</span>  Finances?
                         </Typography>
                         <Typography variant="h6">
-                            <span className={classes.orange}>Responsive</span> {' '}
+                            <span className={classes.orange}>Interactive</span> {' '}
                             and {' '}
                             <span className={classes.orange}>animated</span> dashboards?
                         </Typography>

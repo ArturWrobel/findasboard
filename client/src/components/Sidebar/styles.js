@@ -38,5 +38,8 @@ export default makeStyles((theme) => ({
     name: {
         textDecoration: "none",
         color: "brown"
+    },
+    divider: {
+        marginTop: '50px'
     }
 }));

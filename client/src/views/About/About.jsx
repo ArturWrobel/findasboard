@@ -9,7 +9,6 @@ const useStyles = makeStyles(styles)
 const About = () => {
 
     const classes = useStyles();
-    const email = "artur.wrobel@orange.com"
     return (
         <>
             <Grid container className={classes.test}>
@@ -24,7 +23,7 @@ const About = () => {
                         Help to <span className={classes.orange}>understand</span>  and lead to <span className={classes.orange}>change</span>
                     </Typography>
                     <Typography variant="h6" className={classes.subtitle}>
-                        Digitalization can be <strong>dynamic</strong>  and look nice.
+                        Digitalization can be <strong>dynamic</strong>  and <strong>interactive</strong>.
                     </Typography>
                     <Typography variant="h6">
                         We can show you how to do it.
@@ -36,7 +35,7 @@ const About = () => {
                             digitalize our processes or just make things more engaging, look prettier.
                             Some of us wonder where to start. Here you go! We presented here some dashboards, visualizations,
                             or functions which can apply to your area. There is lots more to show. Let's discuss it and start refreshing our processes,
-                            presentations, or just make our life easier with repetitive things.
+                            presentations, or make our life easier with repetitive things.
                     </Typography>
                     </Grid>
                     <Grid className={classes.grid1}>

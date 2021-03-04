@@ -1,6 +1,7 @@
 const contactStyle = {
     test: {
         justifyContent: 'center',
+        marginTop: '5vh'
     },
     mePicture: {
         minWidth: 150,

@@ -49,7 +49,8 @@ const Tables = () => {
                     </Typography>
             </Paper>
             <Paper elevation={3}
-                {...getRootProps({ className: ['dropzone', classes.drag] })}
+                {...getRootProps({ className: 'dropzone'})}
+                style={{'textAlign': 'center'}}
             >
                 {isDragActive ? <Typography variant="h5" className={classes.loader}>Drop it like it's hot!</Typography>
                     :
