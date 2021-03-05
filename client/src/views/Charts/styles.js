@@ -2,7 +2,8 @@ const chartsStyle = {
     title:{
         backgroundColor: '#FF7A01',
         fontWeight: 'bold',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'white'
     },
     subTitle:{
         backgroundColor: '#eeeeee',

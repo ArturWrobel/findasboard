@@ -1,9 +1,9 @@
 const calculatorStyle = {
     title: {
         backgroundColor: '#FF7A01',
-        fontWeight: 'bold',
         marginBottom: '10px',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'white'
     },
     subtitle: {
         backgroundColor: '#eeeeee',
@@ -35,7 +35,7 @@ const calculatorStyle = {
 
 
     data: {
-        
+
         display: 'flex',
         justifyContent: 'space-between'
     },

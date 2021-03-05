@@ -3,7 +3,8 @@ const tablesStyle = {
         backgroundColor: '#FF7A01',
         fontWeight: 'bold',
         marginBottom: '10px',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'white'
     },
     drag: {
         textAlign: 'center',

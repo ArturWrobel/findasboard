@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Paper, Grid } from "@material-ui/core/"
 import Radio from './Radio'
 import Input from './Input'
+import InfoCalculator from '../../components/Tooltips/InfoCalculator'
 
 import styles from './styles.js'
 
@@ -19,6 +20,7 @@ const Calculator = () => {
 
     return (
         <>
+            <InfoCalculator />
             <Paper elevation={3} className={classes.title}>
                 <Typography variant="h2" >
                     Leasing Calculator

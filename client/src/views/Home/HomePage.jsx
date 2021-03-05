@@ -4,6 +4,8 @@ import { Grid, Typography, Divider, Paper, Hidden, Popover} from "@material-ui/c
 
 import styles from './styles.js'
 import reactLogo from '../../assets/reactLogo.png'
+import InfoTooltipHome from '../../components/Tooltips/InfoTooltipHome'
+
 
 const useStyles = makeStyles(styles)
 
@@ -34,7 +36,7 @@ const Home = () => {
 
     return (
         <>
-
+            <InfoTooltipHome/>
             <Paper className={classes.page} elevation={3}>
 
                 <Grid className={classes.top}

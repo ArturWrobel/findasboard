@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Button }
-    from '@material-ui/core'
+import {
+    Paper, Table, TableBody,
+    TableCell, TableContainer, TableHead,
+    TablePagination, TableRow, Button, Tooltip
+} from '@material-ui/core'
 
 import styles from './stylesFlows.js'
-import Excel from './excel/Excel'
 import exportToExcel from './excel/exportToExcel';
 
 const useStyles = makeStyles(styles)
@@ -95,14 +97,17 @@ export default function StickyHeadTable(props) {
     return (
         <>
             <div className={classes.excelButton}>
-                {/* <Excel csvData = {table}/> */}
-                <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={() => exportToExcel(rows)}>
-                 <strong>Export to excel
-                     </strong>   
-        </Button>
+                <Tooltip
+                classes={{ tooltip: classes.customWidth }}
+                title = "Export table to Excel"
+                >
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={() => exportToExcel(rows)}>
+                        <strong>Export to excel</strong>
+                    </Button>
+                </Tooltip>
 
             </div>
 

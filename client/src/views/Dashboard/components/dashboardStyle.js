@@ -95,17 +95,10 @@ const dashboardStyle = {
     left: '220px',
     zIndex: '50'
   },
-  info: {
-    position: 'fixed',
-    top: '9vh',
-    right: '20px',
-    zIndex: '50'
-  },
   customWidth: {
-    backgroundColor: '#f5f5f9',
+    backgroundColor: '#ddd',
     color: 'rgba(0, 0, 0, 0.87)',
-    maxWidth: 220,
-    fontSize: 10,
+    fontSize: 12,
     border: '1px solid #dadde9'
   }
 };

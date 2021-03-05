@@ -6,6 +6,7 @@ import styles from './styles.js'
 import CitySelect from './City'
 import Map from './Map'
 import Zones from './Zones'
+import InfoMaps from '../../components/Tooltips/InfoMaps'
 
 const useStyles = makeStyles(styles)
 
@@ -18,6 +19,7 @@ const Maps = () => {
 
     return (
         <>
+        <InfoMaps/>
             <Paper elevation={3} className={classes.title}>
                 <Typography variant="h2" >
                     Maps

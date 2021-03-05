@@ -9,6 +9,7 @@ import Calendar from './charts/Calendar/Calendar'
 import HeatMap from './charts/Calendar/HeatMap'
 import Chord from './charts/Chord/Chord'
 import Funnel from './charts/Chord/Funnel'
+import InfoCharts from '../../components/Tooltips/InfoCharts'
 
 const useStyles = makeStyles(styles)
 
@@ -18,6 +19,7 @@ const Charts = () => {
 
   return (
     <>
+    <InfoCharts/>
       <Paper elevation={3} className={classes.title} >
         <Typography variant="h2">
           Data visualizations

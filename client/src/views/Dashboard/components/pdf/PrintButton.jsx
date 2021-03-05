@@ -39,8 +39,8 @@ const PrintButton = () => {
             variant="contained"
             onClick={jsPdfGenerator}>
             <Typography>
-                 <strong>PDF report</strong>
-    </Typography>
+                <strong>PDF report</strong>
+            </Typography>
         </Button>
     )
 }

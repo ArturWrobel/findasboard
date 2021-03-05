@@ -3,7 +3,8 @@ const mapsStyle = {
         backgroundColor: '#FF7A01',
         fontWeight: 'bold',
         marginBottom: '10px',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'white'
     },
     choice: {
         marginBottom: '10px',

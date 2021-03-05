@@ -8,6 +8,7 @@ import Navi from './Navi'
 import ArcLayer from './ArcLayers'
 
 import dataArcLayers from './dataArcLayars.js'
+import InfoMoreMaps from '../../components/Tooltips/InfoMoreMaps'
 
 const useStyles = makeStyles(styles)
 
@@ -16,9 +17,10 @@ const MoreMaps = () => {
     const classes = useStyles();
 
     return (
-        <>
+        <>  
+        <InfoMoreMaps/>
             <Paper elevation={3} className={classes.title}>
-                <Typography variant="h3" >
+                <Typography variant="h2" >
                     More custom maps
                 </Typography>
             </Paper>

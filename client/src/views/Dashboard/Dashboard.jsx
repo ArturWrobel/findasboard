@@ -29,6 +29,8 @@ import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 
 import { SalesChart, BarChart, BreakDown } from '../../components/'
 import { bugs, website, server } from "./components/variables/general.js"
+import InfoDashboard from '../../components/Tooltips/InfoDashboard'
+
 import styles from "./components/dashboardStyle.js";
 
 const useStyles = makeStyles(styles)
@@ -39,36 +41,21 @@ const Dashboard = () => {
 
     return (
         <>
-            <div className={classes.pdf}>
-                <PrintButton />
-            </div>
-            <div className={classes.info}>
-                <Tooltip
-                    classes={{ tooltip: classes.customWidth }}
-                    placement="bottom-start"
-                    title="wiecej textufdvsdvsdddddddd
-                    ddddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddddddddddddddddddddddddddddddddddd">
-                    <Button>
-                        <CardIcon>
-                            <ContactSupportIcon
-                                color="primary"
-                                style={{ fontSize: 40 }}
-                            />
-                        </CardIcon>
-                    </Button>
-                </Tooltip>
-            </div>
+            <Tooltip
+                classes={{ tooltip: classes.customWidth }}
+                placement="bottom"
+                title="Open and save customized PDF report.">
+                <div className={classes.pdf}>
+                    <PrintButton />
+                </div>
+            </Tooltip>
+
+            <InfoDashboard/>
 
             <Paper elevation={3} className={classes.title}>
-                <Grid container>
-                    <Typography variant="h2">
-                        Finance dashboard
+                <Typography variant="h2">
+                    Finance dashboard
                     </Typography>
-                </Grid>
-
-
             </Paper>
             <GridContainer>
                 <GridItem xs={12} sm={6} md={3}>

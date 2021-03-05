@@ -6,6 +6,7 @@ import * as XLSX from "xlsx"
 
 import Data from "./Data"
 import { WeightsChart, FlowsChart, NPVChart } from "../../components"
+import InfoTables from '../../components/Tooltips/InfoTables'
 import styles from './styles.js'
 
 
@@ -43,6 +44,7 @@ const Tables = () => {
 
     return (
         <>
+        <InfoTables/>
             <Paper elevation={3} className={classes.title}>
                 <Typography variant="h2">
                     Analyze investments
