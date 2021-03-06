@@ -15,9 +15,10 @@ const style = {
     home: {
         backgroundColor: '#eee',
         color: 'rgba(0, 0, 0, 0.87)',
-        maxWidth: 180,
+        maxWidth: 160,
         fontSize: 12,
-        border: '1px solid #dadde9'
+        border: '1px solid #dadde9',
+        textAlign: 'center'
     },
     calc: {
         backgroundColor: 'white',

@@ -7,7 +7,8 @@ const homeStyle = {
     top: {
         position: 'absolute',
         marginLeft: '2%',
-        marginTop: '1%'
+        marginTop: '1%',
+        color: 'white'
     },
     mid: {
         marginTop: '18%',

@@ -19,7 +19,7 @@ export default function Info() {
                     title={
                         <React.Fragment>
                             <Typography color="inherit">Info Indicator</Typography>
-                            Yo can always find additional information/guidance here.
+                            On every page you can find here additional information/guidance.
                         </React.Fragment>
                     }
                 >

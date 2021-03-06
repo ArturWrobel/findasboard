@@ -22,11 +22,12 @@ export default function Info() {
                             Please drag attached file (drag.xlsx or dragAgain.xlsx)
                             and drop below to get analysis of data provided.
                             <div>
-                            You can drop another attached file to confirm it changes.
-                            </div>
-                            <div>
                             Drop one file at once.
                             </div>
+                            <div>
+                            You can drop another attached file to check if analysis changes.
+                            </div>
+                            
                     </React.Fragment>
                 }
             >

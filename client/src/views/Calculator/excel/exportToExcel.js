@@ -1,3 +1,5 @@
+import swal from 'sweetalert'
+
 function Workbook() {
     if (!(this instanceof Workbook))
         return new Workbook()
@@ -43,5 +45,10 @@ export default  data => {
         let url = window.URL.createObjectURL(new Blob([s2ab(wbout)], {type:'application/octet-stream'}))
 
         download(url, 'DNAexcel.xlsx')
+        swal({
+            title: "Your table is ready",
+            text: "DNAexcel.xlsx",
+            icon: "success",
+          })
     })
 }

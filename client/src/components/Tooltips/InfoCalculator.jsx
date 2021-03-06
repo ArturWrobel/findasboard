@@ -12,32 +12,32 @@ export default function Info() {
 
     return (
         <div className={classes.info}>
-                <Tooltip
-                    classes={{ tooltip: classes.calc}}
-                    placement="bottom-start"
-                    /* title="This report design is prepared with Material UI." */
-                    title={
-                        <React.Fragment>
-                            <Typography color="inherit">Leasing Calculator</Typography>
-                            <div>
-                                Calculate the required unknown with the flow table. 
+            <Tooltip
+                classes={{ tooltip: classes.calc }}
+                placement="bottom-start"
+                /* title="This report design is prepared with Material UI." */
+                title={
+                    <React.Fragment>
+                        <Typography color="inherit">Leasing Calculator</Typography>
+                        <div>
+                            Calculate the required unknown with the cash flows table.
                                 </div>
-                                <div>
-                                The finished table can be exported to Excel.
+                        <div>
+                            The finished table can be exported to Excel.
                                 </div>
-                            
-                        </React.Fragment>
-                    }
-                >
-                    <Button>
-                        {/* <CardIcon> */}
-                            <ContactSupportIcon
-                                color="primary"
-                                style={{ fontSize: 50 }}
-                            />
-                        {/* </CardIcon> */}
-                    </Button>
-                </Tooltip>
-            </div>
+
+                    </React.Fragment>
+                }
+            >
+                <Button>
+                    {/* <CardIcon> */}
+                    <ContactSupportIcon
+                        color="primary"
+                        style={{ fontSize: 50 }}
+                    />
+                    {/* </CardIcon> */}
+                </Button>
+            </Tooltip>
+        </div>
     )
 }

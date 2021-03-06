@@ -12,32 +12,32 @@ export default function Info() {
 
     return (
         <div className={classes.info}>
-                <Tooltip
-                    classes={{ tooltip: classes.customWidth }}
-                    placement="bottom-start"
-                    /* title="This report design is prepared with Material UI." */
-                    title={
-                        <React.Fragment>
-                            <Typography color="inherit">Interactive maps</Typography>
-                            First map can 'fly' from city to city with button choice.
+            <Tooltip
+                classes={{ tooltip: classes.customWidth }}
+                placement="bottom-start"
+                /* title="This report design is prepared with Material UI." */
+                title={
+                    <React.Fragment>
+                        <Typography color="inherit">Interactive maps</Typography>
+                            First map can 'fly' from one Orange office to another after selecting with the button.
                             <div>
+                            Click on the icon to check if the address is right? ;)
+                            </div>
+                        <div>
                             Second presents range of layers available for presentation reason.
                             </div>
-                            <div>
-                            Check if the address is right?
-                            </div>
-                        </React.Fragment>
-                    }
-                >
-                    <Button>
-                        {/* <CardIcon> */}
-                            <ContactSupportIcon
-                                color="primary"
-                                style={{ fontSize: 50 }}
-                            />
-                        {/* </CardIcon> */}
-                    </Button>
-                </Tooltip>
-            </div>
+                    </React.Fragment>
+                }
+            >
+                <Button>
+                    {/* <CardIcon> */}
+                    <ContactSupportIcon
+                        color="primary"
+                        style={{ fontSize: 50 }}
+                    />
+                    {/* </CardIcon> */}
+                </Button>
+            </Tooltip>
+        </div>
     )
 }

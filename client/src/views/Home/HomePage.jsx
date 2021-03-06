@@ -1,49 +1,26 @@
 import React, { useState } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Divider, Paper, Hidden, Popover} from "@material-ui/core/"
+import { Grid, Typography, Divider, Paper, Hidden, Popover } from "@material-ui/core/"
 
 import styles from './styles.js'
 import reactLogo from '../../assets/reactLogo.png'
-import InfoTooltipHome from '../../components/Tooltips/InfoTooltipHome'
+import InfoTooltipHome from '../../components/Tooltips/InfoHome'
+import ReactTooltip from '../../components/Tooltips/ReactTooltip'
 
 
 const useStyles = makeStyles(styles)
 
 const Home = () => {
-    const [anchorEl, setAnchorEl] = useState(null)
-    const [onMobile, setOnMobile] = useState(null)
     const classes = useStyles();
-
-    const handlePopoverOpen = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handlePopoverClose = () => {
-        setAnchorEl(null);
-    };
-
-
-    const handlePopoverOpenMobile = (event) => {
-        setOnMobile(event.currentTarget);
-    };
-
-    const handlePopoverCloseMobile = () => {
-        setOnMobile(null);
-    };
-
-    const open = Boolean(anchorEl);
-    const openMobile = Boolean(onMobile)
 
     return (
         <>
-            <InfoTooltipHome/>
-            <Paper className={classes.page} elevation={3}>
+            <InfoTooltipHome />
 
-                <Grid className={classes.top}
-                    aria-owns={open ? 'mobile' : undefined}
-                    aria-haspopup="true"
-                    onMouseEnter={handlePopoverOpenMobile}
-                    onMouseLeave={handlePopoverCloseMobile}>
+            <ReactTooltip
+                top="Yes, we can build a mobile app"
+                comment="with nearly the same features">
+                <Grid className={classes.top}>
                     <Grid>
                         <Typography variant="h6">
                             Looking for <span className={classes.orange}>solid</span>  tools and <span className={classes.orange}>automate</span>  Finances?
@@ -58,109 +35,52 @@ const Home = () => {
                         </Typography>
                     </Grid>
                 </Grid>
-                <Divider />
+            </ReactTooltip>
+            <Paper className={classes.page} elevation={3}>
 
-                <Grid className={classes.mid}
-                    aria-owns={open ? 'mouse-over-popover' : undefined}
-                    aria-haspopup="true"
-                    onMouseEnter={handlePopoverOpen}
-                    onMouseLeave={handlePopoverClose}
-                >
-                    <Grid container className={classes.title}>
-                        <Hidden smDown>
-                            <img alt="Artur Wróbel" src={reactLogo} className={classes.logo} />
-                        </Hidden>
-                        <Grid>
-                            <Typography variant="h2">
-                                REACT
+                <Divider />
+                <ReactTooltip
+                    top="Reactify your work and build"
+                    comment='"the most engaging web apps with minimal coding"'>
+                    <Grid className={classes.mid}
+                    >
+                        <Grid container className={classes.title}>
+                            <Hidden smDown>
+                                <img alt="Artur Wróbel" src={reactLogo} className={classes.logo} />
+                            </Hidden>
+                            <Grid>
+                                <Typography variant="h2">
+                                    REACT
                         </Typography>
-                            <Typography variant="h5">
-                                A JavaScript library for building user interfaces
+                                <Typography variant="h5">
+                                    A JavaScript library for building user interfaces
+                        </Typography>
+                            </Grid>
+                            <Hidden smDown>
+                                <img alt="React Logo" src={reactLogo} className={classes.logo} />
+                            </Hidden>
+                        </Grid>
+                    </Grid>
+                </ReactTooltip>
+
+                <ReactTooltip
+                    top="Please play with it"
+                    comment="and wonder, if you could simplify workflow for your convenience">
+                    <Grid className={classes.bottom}>
+                        <Grid className={classes.center}>
+                            <Typography variant="h6">
+                                Have a look
+                        </Typography>
+                            <Typography variant="h6">
+                                what <span className={classes.orange}>we can </span>do
+                        </Typography>
+                            <Typography variant="h6">
+                                together
                         </Typography>
                         </Grid>
-                        <Hidden smDown>
-                            <img alt="Artur Wróbel" src={reactLogo} className={classes.logo} />
-                        </Hidden>
                     </Grid>
-                </Grid>
-
-                <Grid className={classes.bottom}>
-                    <Grid className={classes.center}>
-                        <Typography variant="h6">
-                            Have a look
-                        </Typography>
-                        <Typography variant="h6">
-                            what <span className={classes.orange}>we can </span>do
-                        </Typography>
-                        <Typography variant="h6">
-                            together
-                        </Typography>
-                    </Grid>
-                </Grid>
+                </ReactTooltip>
             </Paper>
-            <div>
-                <Popover
-                    id="mouse-over-popover"
-                    className={classes.popover}
-                    classes={{
-                        paper: classes.paper,
-                    }}
-                    open={open}
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                    }}
-                    onClose={handlePopoverClose}
-                    disableRestoreFocus
-                >
-                    <Typography variant="h6" className={classes.center}>
-                        REACT is great for user
-                    </Typography>
-                    <Typography variant="h6" className={classes.center}>
-                        interface (UI) development.
-                    </Typography>
-                    <Typography>
-                        {'.'}
-                    </Typography>
-                    <Typography variant="h6" className={classes.center}>
-                        "the most engaging web apps
-                    </Typography>
-                    <Typography variant="h6" className={classes.center}>
-                        with minimal coding"
-                    </Typography>
-                </Popover>
-            </div>
-            
-            <div>
-                <Popover
-                    id="mobile"
-                    className={classes.popover}
-                    classes={{
-                        paper: classes.paper,
-                    }}
-                    open={openMobile}
-                    anchorEl={onMobile}
-                    anchorOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                    }}
-                    onClose={handlePopoverCloseMobile}
-                    disableRestoreFocus
-                >
-                    <Typography variant="h6">
-                        Yes, we can go mobile with REACT Native.
-                    </Typography>
-                </Popover>
-            </div>
         </>
     )
 }
