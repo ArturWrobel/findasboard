@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Divider, Paper, Hidden, Popover } from "@material-ui/core/"
+import { Grid, Typography, Divider, Paper, Hidden} from "@material-ui/core/"
 
 import styles from './styles.js'
 import reactLogo from '../../assets/reactLogo.png'

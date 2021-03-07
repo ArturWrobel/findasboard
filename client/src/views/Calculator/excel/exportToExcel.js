@@ -1,4 +1,5 @@
 import swal from 'sweetalert'
+import ReactGA from 'react-ga'
 
 function Workbook() {
     if (!(this instanceof Workbook))
@@ -24,13 +25,13 @@ function s2ab(s) {
 
     const view = new Uint8Array(buf)
 
-    for (let i=0; i !== s.length; ++i)
+    for (let i = 0; i !== s.length; ++i)
         view[i] = s.charCodeAt(i) & 0xFF
 
     return buf
 }
 
-export default  data => {
+export default data => {
     import('xlsx').then(XLSX => {
         const wb = new Workbook()
         const ws = XLSX.utils.json_to_sheet(data)
@@ -39,16 +40,20 @@ export default  data => {
         wb.Sheets[''] = ws
 
 
-        const wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'})
+        const wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' })
 
 
-        let url = window.URL.createObjectURL(new Blob([s2ab(wbout)], {type:'application/octet-stream'}))
+        let url = window.URL.createObjectURL(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }))
 
         download(url, 'DNAexcel.xlsx')
         swal({
             title: "Your table is ready",
             text: "DNAexcel.xlsx",
             icon: "success",
-          })
+        })
+        ReactGA.event({
+            category: "Button",
+            action: "Downloaded excel"
+        })
     })
 }

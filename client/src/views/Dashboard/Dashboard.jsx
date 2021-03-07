@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Paper, Button, Grid, Icon } from "@material-ui/core/"
+import { Typography, Paper } from "@material-ui/core/"
 import GridContainer from './components/GridContainer.js'
 import GridItem from './components/GridItem'
 import Card from "./components/Card.js"
@@ -25,7 +25,6 @@ import Cloud from "@material-ui/icons/Cloud";
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
-import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 
 import { SalesChart, BarChart, BreakDown } from '../../components/'
 import { bugs, website, server } from "./components/variables/general.js"

@@ -2,11 +2,13 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+
 import { Sidebar } from './components';
 import { Contact, Dashboard, Calculator, Charts, HomePage, Maps, MoreMaps, Tables, About } from './views'
 import { getChartData } from './store/actions/charts';
-
 import useStyles from './styles';
+import ReactGA from 'react-ga'
+const trackingId = "UA-191515957-1"
 
 const App = () => {
     const classes = useStyles();
@@ -14,6 +16,8 @@ const App = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        ReactGA.initialize(trackingId)
+        ReactGA.pageview(window.location.pathname + window.location.search)
         dispatch(getChartData());
     }, [dispatch]);
 

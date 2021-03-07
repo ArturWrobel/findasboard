@@ -1,6 +1,7 @@
 import React from 'react';
-import { Typography, Paper, Button } from "@material-ui/core/"
+import { Typography, Button } from "@material-ui/core/"
 import html2canvas from 'html2canvas';
+import ReactGA from 'react-ga'
 import jsPDF from 'jspdf';
 
 const jsPdfGenerator = () => {
@@ -29,6 +30,10 @@ const jsPdfGenerator = () => {
             doc.text(120, 570, 'Artur&Zdzislaw')
             doc.save('DNAgenerated.pdf')
             window.open(doc.output('dataurlnewwindow'))
+        })
+        ReactGA.event({
+            category: "PDF",
+            action: "Created PDF report"
         })
 }
 

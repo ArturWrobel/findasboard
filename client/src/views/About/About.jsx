@@ -30,8 +30,8 @@ const About = () => {
                     </Typography>
                     <Grid className={classes.grid}>
                         <Typography variant="h6" className={classes.text}>
-                            In this demo, we show what can be done to make our life easier.
-                            New tools (like REACT or REACT Native for mobile apps) could help solve problems,
+                            Are you looking to make your life easier?
+                            REACT (or REACT Native for mobile apps) could help solve problems,
                             digitalize our processes or just make things more engaging, look prettier.
                             Some of us wonder where to start. Here you go! We presented here some dashboards, visualizations,
                             or functions which can apply to your area. There is lots more to show. Let's discuss it and start refreshing our processes,
