@@ -3,6 +3,7 @@ import { Typography, Button } from "@material-ui/core/"
 import html2canvas from 'html2canvas';
 import ReactGA from 'react-ga'
 import jsPDF from 'jspdf';
+import swal from 'sweetalert'
 
 const jsPdfGenerator = () => {
     const input = document.getElementById('divIdToPrint')
@@ -28,8 +29,13 @@ const jsPdfGenerator = () => {
 
             doc.text(128, 550, 'Best regards')
             doc.text(120, 570, 'Artur&Zdzislaw')
-            doc.save('DNAgenerated.pdf')
-            window.open(doc.output('dataurlnewwindow'))
+            doc.save('DNA_generated.pdf')
+            /* window.open(doc.output('dataurlnewwindow')) */
+            swal({
+                title: "Your PDF report is ready",
+                text: "DNA_generated.pdf",
+                icon: "success",
+            })
         })
         ReactGA.event({
             category: "PDF",

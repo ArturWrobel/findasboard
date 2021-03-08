@@ -10,6 +10,7 @@ export default makeStyles((theme) => ({
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
         backgroundColor: "black",
+        height: '65px'
     },
     drawer: {
         width: drawerWidth,

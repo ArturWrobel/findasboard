@@ -91,7 +91,7 @@ const dashboardStyle = {
   },
   pdf: {
     position: 'fixed',
-    top: '9vh',
+    top: '90px',
     left: '220px',
     zIndex: '50'
   },

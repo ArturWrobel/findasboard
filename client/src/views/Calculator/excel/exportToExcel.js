@@ -45,10 +45,10 @@ export default data => {
 
         let url = window.URL.createObjectURL(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }))
 
-        download(url, 'DNAexcel.xlsx')
+        download(url, 'DNA_excel.xlsx')
         swal({
             title: "Your table is ready",
-            text: "DNAexcel.xlsx",
+            text: "DNA_excel.xlsx",
             icon: "success",
         })
         ReactGA.event({

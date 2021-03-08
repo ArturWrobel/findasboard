@@ -1,7 +1,7 @@
 const style = {
     info: {
         position: 'fixed',
-        top: '8vh',
+        top: '80px',
         right: '20px',
         zIndex: '50'
     },

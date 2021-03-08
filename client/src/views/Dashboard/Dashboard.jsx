@@ -43,7 +43,7 @@ const Dashboard = () => {
             <Tooltip
                 classes={{ tooltip: classes.customWidth }}
                 placement="bottom"
-                title="Open and save customized PDF report.">
+                title="Export customized PDF report.">
                 <div className={classes.pdf}>
                     <PrintButton />
                 </div>
